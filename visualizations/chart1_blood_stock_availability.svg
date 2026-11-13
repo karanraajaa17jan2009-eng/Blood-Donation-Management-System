@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+<style>
+  .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
+  .label { font-family: Arial, sans-serif; font-size: 13px; fill: #34495e; text-anchor: middle; }
+  .bar-text { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #2c3e50; text-anchor: middle; }
+  .axis { stroke: #bdc3c7; stroke-width: 1.5; }
+  .grid { stroke: #ecf0f1; stroke-width: 1; stroke-dasharray: 4,4; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="400" y="40" class="title" text-anchor="middle">Blood Stock Availability vs Safety Threshold</text>
+<line x1="80" y1="400" x2="740" y2="400" class="axis" />
+<line x1="80" y1="80" x2="80" y2="400" class="axis" />
+<line x1="80" y1="400.0" x2="740" y2="400.0" class="grid" />
+<text x="70" y="404.0" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">0</text>
+<line x1="80" y1="348.2758620689655" x2="740" y2="348.2758620689655" class="grid" />
+<text x="70" y="352.2758620689655" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">5</text>
+<line x1="80" y1="296.55172413793105" x2="740" y2="296.55172413793105" class="grid" />
+<text x="70" y="300.55172413793105" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">10</text>
+<line x1="80" y1="244.82758620689654" x2="740" y2="244.82758620689654" class="grid" />
+<text x="70" y="248.82758620689654" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">15</text>
+<line x1="80" y1="193.10344827586206" x2="740" y2="193.10344827586206" class="grid" />
+<text x="70" y="197.10344827586206" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">20</text>
+<line x1="80" y1="141.37931034482762" x2="740" y2="141.37931034482762" class="grid" />
+<text x="70" y="145.37931034482762" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">25</text>
+<rect x="99.25" y="234.48275862068965" width="44" height="165.51724137931035" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="121.25" y="228.48275862068965" class="bar-text">16</text>
+<text x="121.25" y="420" class="label">A+</text>
+<circle cx="121.25" cy="348.2758620689655" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="181.75" y="337.9310344827586" width="44" height="62.06896551724138" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="203.75" y="331.9310344827586" class="bar-text">6</text>
+<text x="203.75" y="420" class="label">A-</text>
+<circle cx="203.75" cy="358.62068965517244" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="264.25" y="193.10344827586206" width="44" height="206.89655172413794" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="286.25" y="187.10344827586206" class="bar-text">20</text>
+<text x="286.25" y="420" class="label">B+</text>
+<circle cx="286.25" cy="348.2758620689655" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="346.75" y="368.9655172413793" width="44" height="31.03448275862069" fill="#e74c3c" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="368.75" y="362.9655172413793" class="bar-text">3</text>
+<text x="368.75" y="420" class="label">B-</text>
+<circle cx="368.75" cy="358.62068965517244" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="429.25" y="317.2413793103448" width="44" height="82.75862068965517" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="451.25" y="311.2413793103448" class="bar-text">8</text>
+<text x="451.25" y="420" class="label">AB+</text>
+<circle cx="451.25" cy="358.62068965517244" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="511.75" y="379.3103448275862" width="44" height="20.689655172413794" fill="#e74c3c" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="533.75" y="373.3103448275862" class="bar-text">2</text>
+<text x="533.75" y="420" class="label">AB-</text>
+<circle cx="533.75" cy="358.62068965517244" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="594.25" y="151.72413793103448" width="44" height="248.27586206896552" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="616.25" y="145.72413793103448" class="bar-text">24</text>
+<text x="616.25" y="420" class="label">O+</text>
+<circle cx="616.25" cy="337.9310344827586" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="676.75" y="358.62068965517244" width="44" height="41.37931034482759" fill="#e74c3c" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="698.75" y="352.62068965517244" class="bar-text">4</text>
+<text x="698.75" y="420" class="label">O-</text>
+<circle cx="698.75" cy="348.2758620689655" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<polyline points="121.25,348.2758620689655 203.75,358.62068965517244 286.25,348.2758620689655 368.75,358.62068965517244 451.25,358.62068965517244 533.75,358.62068965517244 616.25,337.9310344827586 698.75,348.2758620689655" fill="none" stroke="#d35400" stroke-width="2.5" stroke-dasharray="6,4" />
+<rect x="520" y="65" width="16" height="16" fill="#2ecc71" rx="2" />
+<text x="545" y="78" font-family="Arial" font-size="12" fill="#2c3e50">Adequate Stock</text>
+<rect x="520" y="90" width="16" height="16" fill="#e74c3c" rx="2" />
+<text x="545" y="103" font-family="Arial" font-size="12" fill="#2c3e50">Critical Deficit</text>
+<line x1="520" y1="120" x2="536" y2="120" stroke="#d35400" stroke-width="2.5" stroke-dasharray="4,2" />
+<circle cx="528" cy="120" r="3.5" fill="#d35400" />
+<text x="545" y="124" font-family="Arial" font-size="12" fill="#2c3e50">Safety Threshold</text>
+</svg>

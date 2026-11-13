@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Donation Management - Visual Analytics Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .header { background: linear-gradient(135deg, #c0392b, #8e44ad); color: white; padding: 25px 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px; }
+        .header h1 { margin: 0; font-size: 26px; }
+        .header p { margin: 5px 0 0; opacity: 0.9; font-size: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 3px 10px rgba(0,0,0,0.08); text-align: center; }
+        .card h3 { margin-top: 0; color: #2c3e50; font-size: 17px; }
+        .card svg { max-width: 100%; height: auto; border: 1px solid #ecf0f1; border-radius: 6px; }
+        .meta { background: #ecf0f1; padding: 15px; border-radius: 8px; margin-top: 25px; font-size: 13px; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Blood Donation Management & Donor Availability Analytics</h1>
+        <p>Scenario 15 | Student: Karan Raajaa V (Reg No: 732925ITR045) | Velalar College of Engineering and Technology</p>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <h3>Chart 1: Blood Stock Availability vs Safety Threshold</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+<style>
+  .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
+  .label { font-family: Arial, sans-serif; font-size: 13px; fill: #34495e; text-anchor: middle; }
+  .bar-text { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #2c3e50; text-anchor: middle; }
+  .axis { stroke: #bdc3c7; stroke-width: 1.5; }
+  .grid { stroke: #ecf0f1; stroke-width: 1; stroke-dasharray: 4,4; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="400" y="40" class="title" text-anchor="middle">Blood Stock Availability vs Safety Threshold</text>
+<line x1="80" y1="400" x2="740" y2="400" class="axis" />
+<line x1="80" y1="80" x2="80" y2="400" class="axis" />
+<line x1="80" y1="400.0" x2="740" y2="400.0" class="grid" />
+<text x="70" y="404.0" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">0</text>
+<line x1="80" y1="348.2758620689655" x2="740" y2="348.2758620689655" class="grid" />
+<text x="70" y="352.2758620689655" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">5</text>
+<line x1="80" y1="296.55172413793105" x2="740" y2="296.55172413793105" class="grid" />
+<text x="70" y="300.55172413793105" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">10</text>
+<line x1="80" y1="244.82758620689654" x2="740" y2="244.82758620689654" class="grid" />
+<text x="70" y="248.82758620689654" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">15</text>
+<line x1="80" y1="193.10344827586206" x2="740" y2="193.10344827586206" class="grid" />
+<text x="70" y="197.10344827586206" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">20</text>
+<line x1="80" y1="141.37931034482762" x2="740" y2="141.37931034482762" class="grid" />
+<text x="70" y="145.37931034482762" font-family="Arial" font-size="11" fill="#7f8c8d" text-anchor="end">25</text>
+<rect x="99.25" y="234.48275862068965" width="44" height="165.51724137931035" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="121.25" y="228.48275862068965" class="bar-text">16</text>
+<text x="121.25" y="420" class="label">A+</text>
+<circle cx="121.25" cy="348.2758620689655" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="181.75" y="337.9310344827586" width="44" height="62.06896551724138" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="203.75" y="331.9310344827586" class="bar-text">6</text>
+<text x="203.75" y="420" class="label">A-</text>
+<circle cx="203.75" cy="358.62068965517244" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="264.25" y="193.10344827586206" width="44" height="206.89655172413794" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="286.25" y="187.10344827586206" class="bar-text">20</text>
+<text x="286.25" y="420" class="label">B+</text>
+<circle cx="286.25" cy="348.2758620689655" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="346.75" y="368.9655172413793" width="44" height="31.03448275862069" fill="#e74c3c" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="368.75" y="362.9655172413793" class="bar-text">3</text>
+<text x="368.75" y="420" class="label">B-</text>
+<circle cx="368.75" cy="358.62068965517244" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="429.25" y="317.2413793103448" width="44" height="82.75862068965517" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="451.25" y="311.2413793103448" class="bar-text">8</text>
+<text x="451.25" y="420" class="label">AB+</text>
+<circle cx="451.25" cy="358.62068965517244" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="511.75" y="379.3103448275862" width="44" height="20.689655172413794" fill="#e74c3c" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="533.75" y="373.3103448275862" class="bar-text">2</text>
+<text x="533.75" y="420" class="label">AB-</text>
+<circle cx="533.75" cy="358.62068965517244" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="594.25" y="151.72413793103448" width="44" height="248.27586206896552" fill="#2ecc71" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="616.25" y="145.72413793103448" class="bar-text">24</text>
+<text x="616.25" y="420" class="label">O+</text>
+<circle cx="616.25" cy="337.9310344827586" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<rect x="676.75" y="358.62068965517244" width="44" height="41.37931034482759" fill="#e74c3c" rx="3" stroke="#2c3e50" stroke-width="1" />
+<text x="698.75" y="352.62068965517244" class="bar-text">4</text>
+<text x="698.75" y="420" class="label">O-</text>
+<circle cx="698.75" cy="348.2758620689655" r="4.5" fill="#d35400" stroke="#ffffff" stroke-width="1.5" />
+<polyline points="121.25,348.2758620689655 203.75,358.62068965517244 286.25,348.2758620689655 368.75,358.62068965517244 451.25,358.62068965517244 533.75,358.62068965517244 616.25,337.9310344827586 698.75,348.2758620689655" fill="none" stroke="#d35400" stroke-width="2.5" stroke-dasharray="6,4" />
+<rect x="520" y="65" width="16" height="16" fill="#2ecc71" rx="2" />
+<text x="545" y="78" font-family="Arial" font-size="12" fill="#2c3e50">Adequate Stock</text>
+<rect x="520" y="90" width="16" height="16" fill="#e74c3c" rx="2" />
+<text x="545" y="103" font-family="Arial" font-size="12" fill="#2c3e50">Critical Deficit</text>
+<line x1="520" y1="120" x2="536" y2="120" stroke="#d35400" stroke-width="2.5" stroke-dasharray="4,2" />
+<circle cx="528" cy="120" r="3.5" fill="#d35400" />
+<text x="545" y="124" font-family="Arial" font-size="12" fill="#2c3e50">Safety Threshold</text>
+</svg>
+        </div>
+        <div class="card">
+            <h3>Chart 2: Registered Donors by Blood Group Distribution</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 500" width="650" height="500">
+<style>
+  .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
+  .legend { font-family: Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="325" y="45" class="title" text-anchor="middle">Registered Donors by Blood Group</text>
+<path d="M 400.0 260.0 A 160 160 0 0 1 320.0 398.56406460551017 L 282.5 333.61215932167727 A 85 85 0 0 0 325.0 260.0 Z" fill="#3498db" stroke="#ffffff" stroke-width="2" />
+<rect x="460" y="120" width="18" height="18" fill="#3498db" rx="3" />
+<text x="490" y="134" class="legend">O+: 3 (16.7%)</text>
+<path d="M 320.0 398.56406460551017 A 160 160 0 0 1 160.00000000000003 398.5640646055102 L 197.50000000000003 333.61215932167727 A 85 85 0 0 0 282.5 333.61215932167727 Z" fill="#2ecc71" stroke="#ffffff" stroke-width="2" />
+<rect x="460" y="155" width="18" height="18" fill="#2ecc71" rx="3" />
+<text x="490" y="169" class="legend">A+: 3 (16.7%)</text>
+<path d="M 160.00000000000003 398.5640646055102 A 160 160 0 0 1 80.0 260.0 L 155.0 260.0 A 85 85 0 0 0 197.50000000000003 333.61215932167727 Z" fill="#f1c40f" stroke="#ffffff" stroke-width="2" />
+<rect x="460" y="190" width="18" height="18" fill="#f1c40f" rx="3" />
+<text x="490" y="204" class="legend">B+: 3 (16.7%)</text>
+<path d="M 80.0 260.0 A 160 160 0 0 1 117.43288910096352 157.1539824501537 L 174.88622233488687 205.36305317664417 A 85 85 0 0 0 155.0 260.0 Z" fill="#e67e22" stroke="#ffffff" stroke-width="2" />
+<rect x="460" y="225" width="18" height="18" fill="#e67e22" rx="3" />
+<text x="490" y="239" class="legend">O-: 2 (11.1%)</text>
+<path d="M 117.43288910096352 157.1539824501537 A 160 160 0 0 1 212.21629157329116 102.43075951804673 L 225.23990489831093 176.2913409939623 A 85 85 0 0 0 174.88622233488687 205.36305317664417 Z" fill="#e74c3c" stroke="#ffffff" stroke-width="2" />
+<rect x="460" y="260" width="18" height="18" fill="#e74c3c" rx="3" />
+<text x="490" y="274" class="legend">AB+: 2 (11.1%)</text>
+<path d="M 212.21629157329116 102.43075951804673 A 160 160 0 0 1 320.0 121.43593539448983 L 282.5 186.38784067832273 A 85 85 0 0 0 225.23990489831093 176.2913409939623 Z" fill="#9b59b6" stroke="#ffffff" stroke-width="2" />
+<rect x="460" y="295" width="18" height="18" fill="#9b59b6" rx="3" />
+<text x="490" y="309" class="legend">A-: 2 (11.1%)</text>
+<path d="M 320.0 121.43593539448983 A 160 160 0 0 1 390.35081932574536 205.27677706789302 L 319.8738727668022 230.92828781731816 A 85 85 0 0 0 282.5 186.38784067832273 Z" fill="#1abc9c" stroke="#ffffff" stroke-width="2" />
+<rect x="460" y="330" width="18" height="18" fill="#1abc9c" rx="3" />
+<text x="490" y="344" class="legend">B-: 2 (11.1%)</text>
+<path d="M 390.35081932574536 205.27677706789302 A 160 160 0 0 1 400.0 259.99999999999994 L 325.0 260.0 A 85 85 0 0 0 319.8738727668022 230.92828781731816 Z" fill="#34495e" stroke="#ffffff" stroke-width="2" />
+<rect x="460" y="365" width="18" height="18" fill="#34495e" rx="3" />
+<text x="490" y="379" class="legend">AB-: 1 (5.6%)</text>
+<text x="240" y="252" font-family="Arial" font-size="16" font-weight="bold" fill="#7f8c8d" text-anchor="middle">Total</text>
+<text x="240" y="278" font-family="Arial" font-size="22" font-weight="bold" fill="#2c3e50" text-anchor="middle">18</text>
+</svg>
+        </div>
+        <div class="card">
+            <h3>Chart 3: Monthly Blood Donation Trends (2026)</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+<style>
+  .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
+  .label { font-family: Arial, sans-serif; font-size: 12px; fill: #34495e; text-anchor: middle; }
+  .val-text { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #c0392b; text-anchor: middle; }
+  .axis { stroke: #bdc3c7; stroke-width: 1.5; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="400" y="40" class="title" text-anchor="middle">Monthly Blood Donation Collection Trends (2026)</text>
+<line x1="80" y1="380" x2="740" y2="380" class="axis" />
+<line x1="80" y1="70" x2="80" y2="380" class="axis" />
+<polygon points="80,380 113.0,333.3333333333333 179.0,286.6666666666667 245.0,286.6666666666667 311.0,286.6666666666667 377.0,193.33333333333334 443.0,193.33333333333334 509.0,286.6666666666667 575.0,286.6666666666667 641.0,193.33333333333334 707.0,286.6666666666667 740,380" fill="#e74c3c" fill-opacity="0.15" />
+<polyline points="113.0,333.3333333333333 179.0,286.6666666666667 245.0,286.6666666666667 311.0,286.6666666666667 377.0,193.33333333333334 443.0,193.33333333333334 509.0,286.6666666666667 575.0,286.6666666666667 641.0,193.33333333333334 707.0,286.6666666666667" fill="none" stroke="#c0392b" stroke-width="3" />
+<circle cx="113.0" cy="333.3333333333333" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="113.0" y="323.3333333333333" class="val-text">1</text>
+<text x="113.0" y="405" class="label">2026-02</text>
+<circle cx="179.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="179.0" y="276.6666666666667" class="val-text">2</text>
+<text x="179.0" y="405" class="label">2026-03</text>
+<circle cx="245.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="245.0" y="276.6666666666667" class="val-text">2</text>
+<text x="245.0" y="405" class="label">2026-04</text>
+<circle cx="311.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="311.0" y="276.6666666666667" class="val-text">2</text>
+<text x="311.0" y="405" class="label">2026-05</text>
+<circle cx="377.0" cy="193.33333333333334" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="377.0" y="183.33333333333334" class="val-text">4</text>
+<text x="377.0" y="405" class="label">2026-06</text>
+<circle cx="443.0" cy="193.33333333333334" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="443.0" y="183.33333333333334" class="val-text">4</text>
+<text x="443.0" y="405" class="label">2026-07</text>
+<circle cx="509.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="509.0" y="276.6666666666667" class="val-text">2</text>
+<text x="509.0" y="405" class="label">2026-08</text>
+<circle cx="575.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="575.0" y="276.6666666666667" class="val-text">2</text>
+<text x="575.0" y="405" class="label">2026-09</text>
+<circle cx="641.0" cy="193.33333333333334" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="641.0" y="183.33333333333334" class="val-text">4</text>
+<text x="641.0" y="405" class="label">2026-10</text>
+<circle cx="707.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="707.0" y="276.6666666666667" class="val-text">2</text>
+<text x="707.0" y="405" class="label">2026-11</text>
+</svg>
+        </div>
+        <div class="card">
+            <h3>Chart 4: Donor Availability (90-Day Medical Interval)</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420">
+<style>
+  .title { font-family: Arial, sans-serif; font-size: 19px; font-weight: bold; fill: #2c3e50; }
+  .bar-lbl { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #2c3e50; text-anchor: middle; }
+  .pct-lbl { font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #2c3e50; text-anchor: middle; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="350" y="45" class="title" text-anchor="middle">Donor Availability Analysis (90-Day Medical Interval)</text>
+<line x1="100" y1="340" x2="620" y2="340" stroke="#bdc3c7" stroke-width="1.5" />
+<rect x="180" y="225.0" width="120" height="115.0" fill="#2ecc71" rx="4" stroke="#27ae60" stroke-width="1.5" />
+<text x="240" y="213.0" class="pct-lbl">9 Donors (50.0%)</text>
+<text x="240" y="370" class="bar-lbl">Eligible (Available)</text>
+<rect x="400" y="225.0" width="120" height="115.0" fill="#e74c3c" rx="4" stroke="#c0392b" stroke-width="1.5" />
+<text x="460" y="213.0" class="pct-lbl">9 Donors (50.0%)</text>
+<text x="460" y="370" class="bar-lbl">Ineligible (Cooldown)</text>
+</svg>
+        </div>
+    </div>
+    <div class="meta">
+        <strong>Academic Evaluation Compliance:</strong> Course 25ITC31 Foundations of Data Science. Charts generated automatically from SQLite database tables via Python ETL pipeline.
+    </div>
+</body>
+</html>

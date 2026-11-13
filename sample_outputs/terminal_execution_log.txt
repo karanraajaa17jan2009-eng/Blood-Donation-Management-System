@@ -1,0 +1,229 @@
+﻿[Database Engine] Running in Zero-Dependency Standard Java Mode (Synchronized Storage).
+================================================================================
+          VELALAR COLLEGE OF ENGINEERING AND TECHNOLOGY, ERODE - 12            
+                   DEPARTMENT OF INFORMATION TECHNOLOGY                         
+              ACADEMIC YEAR: 2026 - 2027 (ODD) | CLASS: 25IT3A&B                
+--------------------------------------------------------------------------------
+   Scenario 15: Blood Donation Management and Donor Availability Analysis System
+   Developed by: Karan Raajaa V  |  Register No: 732925ITR045 (Roll No. 45)      
+================================================================================
+
++------------------------------------------------------------------------------+
+|                            MAIN OPERATION MENU                               |
++------------------------------------------------------------------------------+
+|  [1] Register New Voluntary Donor                                            |
+|  [2] Record Blood Donation (with 90-Day Clinical Eligibility Verification)   |
+|  [3] View Blood Stock Inventory & Safety Threshold Alerts                    |
+|  [4] Hospital Blood Requisitions & Unit Issuance                             |
+|  [5] Donor Availability & 90-Day Eligibility Audit (Filter by Group)         |
+|  [6] View Analytical Management Reports                                      |
+|  [7] Trigger Python Data Science & Visualizations Pipeline                   |
+|  [8] System Architecture & Database Metadata                                 |
+|  [0] Exit System                                                             |
++------------------------------------------------------------------------------+
+Enter your choice (0-8): 
+================================================================================
+                          SYSTEM INFORMATION & METADATA                         
+================================================================================
+ Project Title   : Blood Donation Management and Donor Availability Analysis
+ Scenario Number : Scenario 15
+ Student Name    : Karan Raajaa V
+ Register Number : 732925ITR045 (Roll No: 45)
+ Department      : Department of Information Technology
+ Institution     : Velalar College of Engineering and Technology, Erode - 12
+ Academic Year   : 2026 - 2027 (ODD)
+ Courses Mapped  : 25ITT31 (DBMS), 25ITT32 (Java), 25ITT33 (SE), 25ITC31 (Data Science)
+ Architecture    : Multi-Tier Layered Architecture (Model - DAO - Service - UI)
+ Database Engine : SQLite 3 (Default) / MySQL 8.0+ Compatible
+ Database Status : Synchronized Memory Engine Active
+ Registered Donors: 18
+ Total Donations  : 25
+ Hospital Requests: 12
+================================================================================
+
+
++------------------------------------------------------------------------------+
+|                            MAIN OPERATION MENU                               |
++------------------------------------------------------------------------------+
+|  [1] Register New Voluntary Donor                                            |
+|  [2] Record Blood Donation (with 90-Day Clinical Eligibility Verification)   |
+|  [3] View Blood Stock Inventory & Safety Threshold Alerts                    |
+|  [4] Hospital Blood Requisitions & Unit Issuance                             |
+|  [5] Donor Availability & 90-Day Eligibility Audit (Filter by Group)         |
+|  [6] View Analytical Management Reports                                      |
+|  [7] Trigger Python Data Science & Visualizations Pipeline                   |
+|  [8] System Architecture & Database Metadata                                 |
+|  [0] Exit System                                                             |
++------------------------------------------------------------------------------+
+Enter your choice (0-8): 
+=========================================================================================================================
+   REAL-TIME BLOOD STOCK INVENTORY REPORT
+=========================================================================================================================
++-------------+-----------------+---------------+-------------------+------------------+--------------------------------+
+| Blood Group | Available Units | Min Threshold | Surplus / Deficit | Status           | Total Historical Units Donated |
++=============+=================+===============+===================+==================+================================+
+| A+          | 16              | 5             | +11               | ADEQUATE         | 6                              |
+| A-          | 6               | 4             | +2                | ADEQUATE         | 2                              |
+| AB+         | 8               | 4             | +4                | ADEQUATE         | 2                              |
+| AB-         | 2               | 4             | -2                | CRITICAL DEFICIT | 1                              |
+| B+          | 20              | 5             | +15               | ADEQUATE         | 4                              |
+| B-          | 3               | 4             | -1                | CRITICAL DEFICIT | 1                              |
+| O+          | 24              | 6             | +18               | ADEQUATE         | 6                              |
+| O-          | 4               | 5             | -1                | CRITICAL DEFICIT | 3                              |
++-------------+-----------------+---------------+-------------------+------------------+--------------------------------+
+ Total Count: 8 record(s)
+
+ >> Total Blood Units in Storage: 83 units across 8 blood groups.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                      CRITICAL LOW STOCK ALERTS                         
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ [ALERT] Blood Group AB- has only 2 unit(s) available (Safety Buffer: 4 units)!
+ [ALERT] Blood Group B- has only 3 unit(s) available (Safety Buffer: 4 units)!
+ [ALERT] Blood Group O- has only 4 unit(s) available (Safety Buffer: 5 units)!
+ >> Recommend organizing targeted donation drives for the above groups.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
++------------------------------------------------------------------------------+
+|                            MAIN OPERATION MENU                               |
++------------------------------------------------------------------------------+
+|  [1] Register New Voluntary Donor                                            |
+|  [2] Record Blood Donation (with 90-Day Clinical Eligibility Verification)   |
+|  [3] View Blood Stock Inventory & Safety Threshold Alerts                    |
+|  [4] Hospital Blood Requisitions & Unit Issuance                             |
+|  [5] Donor Availability & 90-Day Eligibility Audit (Filter by Group)         |
+|  [6] View Analytical Management Reports                                      |
+|  [7] Trigger Python Data Science & Visualizations Pipeline                   |
+|  [8] System Architecture & Database Metadata                                 |
+|  [0] Exit System                                                             |
++------------------------------------------------------------------------------+
+Enter your choice (0-8): 
+--- [5] Donor Availability & 90-Day Eligibility Audit ---
+Enter Blood Group filter (or press Enter / type ALL for all groups): 
+=======================================================================================================================
+   AVAILABLE DONORS REPORT (90-DAY MEDICAL INTERVAL PASSED) [ALL GROUPS]
+=======================================================================================================================
++----------+--------------------+-------------+------+------------+------------+---------------+----------------------+
+| Donor ID | Donor Name         | Blood Group | Age  | Phone      | City       | Last Donated  | Availability Status  |
++==========+====================+=============+======+============+============+===============+======================+
+| 13       | Swathi Chandran    | A+          | 22   | 9842778899 | Erode      | 2026-08-01    | AVAILABLE (Eligible) |
+| 6        | Vigneshwaran K     | A-          | 28   | 9751098765 | Coimbatore | 2026-05-02    | AVAILABLE (Eligible) |
+| 5        | Ananya Sivakumar   | AB+         | 23   | 9894123456 | Erode      | 2026-04-18    | AVAILABLE (Eligible) |
+| 8        | Manojkumar T       | AB-         | 34   | 9500123456 | Tirupur    | 2026-06-01    | AVAILABLE (Eligible) |
+| 3        | Dharshini M        | B+          | 20   | 9443210987 | Bhavani    | 2026-07-28    | AVAILABLE (Eligible) |
+| 11       | Kavitha Natarajan  | B+          | 27   | 9787665544 | Namakkal   | 2026-07-08    | AVAILABLE (Eligible) |
+| 18       | Karthikeyan B      | B-          | 42   | 9894002211 | Coimbatore | Never Donated | AVAILABLE (Eligible) |
+| 7        | Sneha Ramakrishnan | B-          | 25   | 9629876543 | Salem      | 2026-05-15    | AVAILABLE (Eligible) |
+| 12       | Hariharan G        | O-          | 24   | 9965443322 | Coimbatore | 2026-07-18    | AVAILABLE (Eligible) |
++----------+--------------------+-------------+------+------------+------------+---------------+----------------------+
+ Total Count: 9 record(s)
+
+
++------------------------------------------------------------------------------+
+|                            MAIN OPERATION MENU                               |
++------------------------------------------------------------------------------+
+|  [1] Register New Voluntary Donor                                            |
+|  [2] Record Blood Donation (with 90-Day Clinical Eligibility Verification)   |
+|  [3] View Blood Stock Inventory & Safety Threshold Alerts                    |
+|  [4] Hospital Blood Requisitions & Unit Issuance                             |
+|  [5] Donor Availability & 90-Day Eligibility Audit (Filter by Group)         |
+|  [6] View Analytical Management Reports                                      |
+|  [7] Trigger Python Data Science & Visualizations Pipeline                   |
+|  [8] System Architecture & Database Metadata                                 |
+|  [0] Exit System                                                             |
++------------------------------------------------------------------------------+
+Enter your choice (0-8): 
+--- [4] Hospital Blood Requisitions & Unit Issuance ---
+ 1. View All Hospital Requests
+ 2. View Pending Requests Only
+ 3. Submit New Hospital Requisition
+ 4. Fulfill & Issue Blood Units to Hospital
+ 5. Return to Main Menu
+Select sub-option (1-5): 
+========================================================================================================
+   ACTIVE PENDING HOSPITAL REQUISITIONS
+========================================================================================================
++--------+--------------------------------------+-------------+--------------+--------------+----------+
+| Req ID | Hospital Name                        | Blood Group | Units Needed | Request Date | Urgency  |
++========+======================================+=============+==============+==============+==========+
+| 207    | Erode Trust Hospital, Erode          | B-          | 4            | 2026-11-07   | CRITICAL |
+| 208    | Sudha Hospitals, Erode               | AB-         | 3            | 2026-11-09   | URGENT   |
+| 209    | Care 24 Hospital, Perundurai         | O+          | 6            | 2026-11-11   | CRITICAL |
+| 210    | Sri Ramakrishna Hospital, Coimbatore | A+          | 2            | 2026-11-12   | NORMAL   |
+| 211    | Manian Medical Centre, Erode         | B+          | 1            | 2026-11-12   | NORMAL   |
++--------+--------------------------------------+-------------+--------------+--------------+----------+
+ Total Count: 5 record(s)
+
+
++------------------------------------------------------------------------------+
+|                            MAIN OPERATION MENU                               |
++------------------------------------------------------------------------------+
+|  [1] Register New Voluntary Donor                                            |
+|  [2] Record Blood Donation (with 90-Day Clinical Eligibility Verification)   |
+|  [3] View Blood Stock Inventory & Safety Threshold Alerts                    |
+|  [4] Hospital Blood Requisitions & Unit Issuance                             |
+|  [5] Donor Availability & 90-Day Eligibility Audit (Filter by Group)         |
+|  [6] View Analytical Management Reports                                      |
+|  [7] Trigger Python Data Science & Visualizations Pipeline                   |
+|  [8] System Architecture & Database Metadata                                 |
+|  [0] Exit System                                                             |
++------------------------------------------------------------------------------+
+Enter your choice (0-8): 
+--- [6] Analytical Management Reports ---
+ 1. Comprehensive Blood Stock Inventory Status
+ 2. Complete Chronological Donation History Log
+ 3. Hospital Requisition Status Summary
+ 4. All Registered Donors Directory
+ 5. Return to Main Menu
+Select report (1-5): 
+====================================================================================================================================
+   CHRONOLOGICAL BLOOD DONATION HISTORY LOG
+====================================================================================================================================
++-------------+---------------------+-------------+------------+-------+-----------+--------------------+--------------------------+
+| Donation ID | Donor Name          | Blood Group | Date       | Units | Hb (g/dL) | Phlebotomist       | Remarks                  |
++=============+=====================+=============+============+=======+===========+====================+==========================+
+| 101         | Karan Raajaa V      | O+          | 2026-02-01 | 1     | 14.5      | Dr. S. Ramesh      | Normal whole blood       |
+| 102         | Karan Raajaa V      | O+          | 2026-06-15 | 1     | 14.2      | Staff Nurse Geetha | Repeat donor             |
+| 103         | Praveen Kumar S     | A+          | 2026-03-01 | 1     | 13.8      | Dr. S. Ramesh      | Routine camp             |
+| 104         | Praveen Kumar S     | A+          | 2026-07-10 | 1     | 14.0      | Staff Nurse Priya  | Fit for donation         |
+| 105         | Dharshini M         | B+          | 2026-03-15 | 1     | 12.8      | Dr. R. Kavitha     | Normal vitals            |
+| 106         | Dharshini M         | B+          | 2026-07-28 | 1     | 13.0      | Staff Nurse Geetha | College drive            |
+| 107         | Sanjay Balaji R     | O-          | 2026-04-02 | 1     | 15.2      | Dr. S. Ramesh      | Universal reserve        |
+| 108         | Sanjay Balaji R     | O-          | 2026-10-25 | 1     | 15.0      | Staff Nurse Geetha | Recent - Cooldown active |
+| 109         | Ananya Sivakumar    | AB+         | 2026-04-18 | 1     | 12.5      | Dr. R. Kavitha     | Voluntary donation       |
+| 110         | Vigneshwaran K      | A-          | 2026-05-02 | 1     | 14.1      | Dr. S. Ramesh      | Rare group collection    |
+| 111         | Sneha Ramakrishnan  | B-          | 2026-05-15 | 1     | 13.2      | Dr. R. Kavitha     | Voluntary replacement    |
+| 112         | Manojkumar T        | AB-         | 2026-06-01 | 1     | 14.8      | Dr. S. Ramesh      | Rare negative unit       |
+| 113         | Deepa Lakshmanan    | O+          | 2026-06-12 | 1     | 13.6      | Staff Nurse Priya  | Corporate drive          |
+| 114         | Deepa Lakshmanan    | O+          | 2026-10-18 | 1     | 13.4      | Staff Nurse Geetha | Recent - Cooldown active |
+| 115         | Aravind Swaminathan | A+          | 2026-06-25 | 1     | 14.3      | Dr. S. Ramesh      | District camp            |
+| 116         | Kavitha Natarajan   | B+          | 2026-07-08 | 1     | 12.9      | Staff Nurse Geetha | Youth Red Cross          |
+| 117         | Hariharan G         | O-          | 2026-07-18 | 1     | 14.6      | Dr. S. Ramesh      | Voluntary donor          |
+| 118         | Swathi Chandran     | A+          | 2026-08-01 | 1     | 13.1      | Staff Nurse Priya  | Eligible (>90 days)      |
+| 119         | Gowtham Raj P       | B+          | 2026-08-20 | 1     | 14.0      | Dr. R. Kavitha     | Recent - Cooldown active |
+| 120         | Divya Bharathi K    | O+          | 2026-09-05 | 1     | 13.5      | Staff Nurse Geetha | Recent - Cooldown active |
+| 121         | Mohanraj S          | A-          | 2026-09-22 | 1     | 14.4      | Dr. S. Ramesh      | Recent - Cooldown active |
+| 122         | Nithya Sundaram     | AB+         | 2026-10-05 | 1     | 12.7      | Staff Nurse Priya  | Recent - Cooldown active |
+| 123         | Aravind Swaminathan | A+          | 2026-10-20 | 1     | 14.2      | Staff Nurse Geetha | Recent - Cooldown active |
+| 124         | Praveen Kumar S     | A+          | 2026-11-02 | 1     | 13.9      | Dr. S. Ramesh      | Recent - Cooldown active |
+| 125         | Karan Raajaa V      | O+          | 2026-11-08 | 1     | 14.4      | Dr. S. Ramesh      | Recent - Cooldown active |
++-------------+---------------------+-------------+------------+-------+-----------+--------------------+--------------------------+
+ Total Count: 25 record(s)
+
+
++------------------------------------------------------------------------------+
+|                            MAIN OPERATION MENU                               |
++------------------------------------------------------------------------------+
+|  [1] Register New Voluntary Donor                                            |
+|  [2] Record Blood Donation (with 90-Day Clinical Eligibility Verification)   |
+|  [3] View Blood Stock Inventory & Safety Threshold Alerts                    |
+|  [4] Hospital Blood Requisitions & Unit Issuance                             |
+|  [5] Donor Availability & 90-Day Eligibility Audit (Filter by Group)         |
+|  [6] View Analytical Management Reports                                      |
+|  [7] Trigger Python Data Science & Visualizations Pipeline                   |
+|  [8] System Architecture & Database Metadata                                 |
+|  [0] Exit System                                                             |
++------------------------------------------------------------------------------+
+Enter your choice (0-8): 
+Thank you for using the Blood Donation Management System. Goodbye!

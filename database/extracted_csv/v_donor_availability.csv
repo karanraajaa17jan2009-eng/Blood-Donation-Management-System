@@ -1,0 +1,19 @@
+donor_id,donor_name,age,gender,contact_number,blood_group,city,last_donation_date,days_since_last_donation,eligibility_status,days_remaining_in_cooldown
+2,Praveen Kumar S,21,Male,9789123450,A+,Perundurai,2026-11-02,11,INELIGIBLE (Cooldown),79
+10,Aravind Swaminathan,31,Male,9843001122,A+,Karur,2026-10-20,24,INELIGIBLE (Cooldown),66
+13,Swathi Chandran,22,Female,9842778899,A+,Erode,2026-08-01,104,ELIGIBLE,0
+6,Vigneshwaran K,28,Male,9751098765,A-,Coimbatore,2026-05-02,195,ELIGIBLE,0
+16,Mohanraj S,38,Male,9524110099,A-,Tirupur,2026-09-22,52,INELIGIBLE (Cooldown),38
+5,Ananya Sivakumar,23,Female,9894123456,AB+,Erode,2026-04-18,209,ELIGIBLE,0
+17,Nithya Sundaram,30,Female,9442998877,AB+,Erode,2026-10-05,39,INELIGIBLE (Cooldown),51
+8,Manojkumar T,34,Male,9500123456,AB-,Tirupur,2026-06-01,165,ELIGIBLE,0
+3,Dharshini M,20,Female,9443210987,B+,Bhavani,2026-07-28,108,ELIGIBLE,0
+11,Kavitha Natarajan,27,Female,9787665544,B+,Namakkal,2026-07-08,128,ELIGIBLE,0
+14,Gowtham Raj P,26,Male,9715223344,B+,Dharapuram,2026-08-20,85,INELIGIBLE (Cooldown),5
+7,Sneha Ramakrishnan,25,Female,9629876543,B-,Salem,2026-05-15,182,ELIGIBLE,0
+18,Karthikeyan B,42,Male,9894002211,B-,Coimbatore,,999,ELIGIBLE (First Time),0
+1,Karan Raajaa V,20,Male,9842104501,O+,Erode,2026-11-08,5,INELIGIBLE (Cooldown),85
+9,Deepa Lakshmanan,29,Female,9488112233,O+,Erode,2026-10-18,26,INELIGIBLE (Cooldown),64
+15,Divya Bharathi K,23,Female,9600554433,O+,Salem,2026-09-05,69,INELIGIBLE (Cooldown),21
+4,Sanjay Balaji R,22,Male,9944556677,O-,Gobichettipalayam,2026-10-25,19,INELIGIBLE (Cooldown),71
+12,Hariharan G,24,Male,9965443322,O-,Coimbatore,2026-07-18,118,ELIGIBLE,0

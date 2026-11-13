@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+<style>
+  .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
+  .label { font-family: Arial, sans-serif; font-size: 12px; fill: #34495e; text-anchor: middle; }
+  .val-text { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #c0392b; text-anchor: middle; }
+  .axis { stroke: #bdc3c7; stroke-width: 1.5; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="400" y="40" class="title" text-anchor="middle">Monthly Blood Donation Collection Trends (2026)</text>
+<line x1="80" y1="380" x2="740" y2="380" class="axis" />
+<line x1="80" y1="70" x2="80" y2="380" class="axis" />
+<polygon points="80,380 113.0,333.3333333333333 179.0,286.6666666666667 245.0,286.6666666666667 311.0,286.6666666666667 377.0,193.33333333333334 443.0,193.33333333333334 509.0,286.6666666666667 575.0,286.6666666666667 641.0,193.33333333333334 707.0,286.6666666666667 740,380" fill="#e74c3c" fill-opacity="0.15" />
+<polyline points="113.0,333.3333333333333 179.0,286.6666666666667 245.0,286.6666666666667 311.0,286.6666666666667 377.0,193.33333333333334 443.0,193.33333333333334 509.0,286.6666666666667 575.0,286.6666666666667 641.0,193.33333333333334 707.0,286.6666666666667" fill="none" stroke="#c0392b" stroke-width="3" />
+<circle cx="113.0" cy="333.3333333333333" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="113.0" y="323.3333333333333" class="val-text">1</text>
+<text x="113.0" y="405" class="label">2026-02</text>
+<circle cx="179.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="179.0" y="276.6666666666667" class="val-text">2</text>
+<text x="179.0" y="405" class="label">2026-03</text>
+<circle cx="245.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="245.0" y="276.6666666666667" class="val-text">2</text>
+<text x="245.0" y="405" class="label">2026-04</text>
+<circle cx="311.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="311.0" y="276.6666666666667" class="val-text">2</text>
+<text x="311.0" y="405" class="label">2026-05</text>
+<circle cx="377.0" cy="193.33333333333334" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="377.0" y="183.33333333333334" class="val-text">4</text>
+<text x="377.0" y="405" class="label">2026-06</text>
+<circle cx="443.0" cy="193.33333333333334" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="443.0" y="183.33333333333334" class="val-text">4</text>
+<text x="443.0" y="405" class="label">2026-07</text>
+<circle cx="509.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="509.0" y="276.6666666666667" class="val-text">2</text>
+<text x="509.0" y="405" class="label">2026-08</text>
+<circle cx="575.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="575.0" y="276.6666666666667" class="val-text">2</text>
+<text x="575.0" y="405" class="label">2026-09</text>
+<circle cx="641.0" cy="193.33333333333334" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="641.0" y="183.33333333333334" class="val-text">4</text>
+<text x="641.0" y="405" class="label">2026-10</text>
+<circle cx="707.0" cy="286.6666666666667" r="5" fill="#c0392b" stroke="#ffffff" stroke-width="2" />
+<text x="707.0" y="276.6666666666667" class="val-text">2</text>
+<text x="707.0" y="405" class="label">2026-11</text>
+</svg>
