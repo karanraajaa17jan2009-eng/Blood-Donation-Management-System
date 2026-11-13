@@ -34,3 +34,4 @@ public class InventoryService {
         return bloodStockDAO.getLowStockAlerts();
     }
 }
+

@@ -116,3 +116,4 @@ public class DonorEligibilityService {
         public LocalDate getLastDonationDate() { return lastDonationDate; }
     }
 }
+

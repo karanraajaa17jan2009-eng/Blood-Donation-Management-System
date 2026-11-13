@@ -4,7 +4,7 @@
 **Course Code & Name:** 25ITT32 - Java Programming / 25ITT31 - DBMS / 25ITC31 - Foundations of Data Science  
 **Student Name:** Karan Raajaa V  
 **Register Number:** 732925ITR045  
-**Class / Section:** 25IT3A&B (Roll No. 45)  
+**Class / Section:** 25IT3A (Roll No. 45)  
 **Scenario:** Scenario 15 - Blood Donation Management and Donor Availability Analysis System  
 
 ---
@@ -207,3 +207,4 @@ This document provides documented sample inputs and actual terminal outputs for 
 
 ---
 *Prepared and verified for academic submission by Karan Raajaa V (Reg. No: 732925ITR045).*
+

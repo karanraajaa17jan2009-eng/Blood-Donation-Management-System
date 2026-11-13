@@ -1,7 +1,7 @@
 """
 Data Preprocessing & Feature Engineering Module
 Scenario 15: Blood Donation Management and Donor Availability Analysis System
-Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A&B
+Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A
 Institution: Velalar College of Engineering and Technology, Erode - 12
 """
 
@@ -176,3 +176,4 @@ if __name__ == "__main__":
     for k, v in stats.items():
         print(f"  {k}: {v}")
     print(f"\nEligible Donors Count: {sum(1 for d in availability if d['is_eligible'])} / {len(availability)}")
+

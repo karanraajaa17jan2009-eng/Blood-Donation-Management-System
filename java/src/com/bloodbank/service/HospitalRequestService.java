@@ -103,3 +103,4 @@ public class HospitalRequestService {
         public String getMessage() { return message; }
     }
 }
+

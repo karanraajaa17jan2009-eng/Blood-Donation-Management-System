@@ -1,7 +1,7 @@
 """
 Main Analysis Pipeline Runner
 Scenario 15: Blood Donation Management and Donor Availability Analysis System
-Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A&B
+Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A
 Institution: Velalar College of Engineering and Technology, Erode - 12
 """
 
@@ -77,3 +77,4 @@ def run_pipeline():
 
 if __name__ == "__main__":
     run_pipeline()
+

@@ -173,3 +173,4 @@ public class DatabaseManager {
     public AtomicInteger getDonationIdGen() { return donationIdGen; }
     public AtomicInteger getRequestIdGen() { return requestIdGen; }
 }
+

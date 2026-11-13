@@ -4,7 +4,7 @@
 **Course Code & Name:** 25ITT33 - Software Engineering / 25ITT32 - Java Programming  
 **Student Name:** Karan Raajaa V  
 **Register Number:** 732925ITR045  
-**Class / Section:** 25IT3A&B (Roll No. 45)  
+**Class / Section:** 25IT3A (Roll No. 45)  
 **Scenario:** Scenario 15 - Blood Donation Management and Donor Availability Analysis System  
 
 ---

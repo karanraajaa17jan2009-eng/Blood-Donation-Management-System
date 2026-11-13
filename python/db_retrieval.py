@@ -1,7 +1,7 @@
 """
 Database Retrieval Module
 Scenario 15: Blood Donation Management and Donor Availability Analysis System
-Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A&B
+Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A
 Institution: Velalar College of Engineering and Technology, Erode - 12
 """
 
@@ -62,3 +62,4 @@ if __name__ == "__main__":
     print("=== Blood Bank Database Retrieval & Extraction ===")
     results = export_to_csv()
     print("ETL Data Extraction Complete:", results)
+

@@ -14,7 +14,7 @@
 - **Institution:** Velalar College of Engineering and Technology, Erode - 638012
 - **Department:** Department of Information Technology
 - **Academic Year:** 2026 - 2027 (ODD Semester)
-- **Class & Section:** 25IT3A&B
+- **Class & Section:** 25IT3A
 - **Student Name:** **Karan Raajaa V**
 - **Register Number:** **732925ITR045** (Roll No: 45)
 - **Assigned Scenario:** **Scenario 15: Blood Donation Management and Donor Availability Analysis System**
@@ -279,3 +279,4 @@ Detailed test specifications and execution logs are available in [Testing_Docume
 - **College:** Velalar College of Engineering and Technology, Erode - 638012
 - **Assessment:** Project-Based Assessment (Academic Year 2026-2027 ODD)
 - **GitHub Repository Ready:** All required deliverables (SRS, Diagrams, Java source code, SQL scripts, Python analytics, Jupyter notebook, and Sample outputs) are organized and tested.
+

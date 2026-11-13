@@ -1,7 +1,7 @@
 -- =============================================================================
 -- Blood Donation Management and Donor Availability Analysis System
 -- Sample Dataset (DML)
--- Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A&B
+-- Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A
 -- Institution: Velalar College of Engineering and Technology, Erode - 12
 -- =============================================================================
 

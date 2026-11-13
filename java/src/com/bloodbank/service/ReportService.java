@@ -137,3 +137,4 @@ public class ReportService {
         TableFormatter.printTable("Hospital Blood Requisitions and Issuance Report", headers, rows);
     }
 }
+

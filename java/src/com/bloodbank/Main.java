@@ -17,7 +17,7 @@ import java.util.*;
  *
  * Student Name: Karan Raajaa V
  * Register Number: 732925ITR045
- * Class / Section: 25IT3A&B (Roll No. 45)
+ * Class / Section: 25IT3A (Roll No. 45)
  * Institution: Velalar College of Engineering and Technology, Erode - 638012
  */
 public class Main {
@@ -91,7 +91,7 @@ public class Main {
         System.out.println("================================================================================");
         System.out.println("          VELALAR COLLEGE OF ENGINEERING AND TECHNOLOGY, ERODE - 12            ");
         System.out.println("                   DEPARTMENT OF INFORMATION TECHNOLOGY                         ");
-        System.out.println("              ACADEMIC YEAR: 2026 - 2027 (ODD) | CLASS: 25IT3A&B                ");
+        System.out.println("              ACADEMIC YEAR: 2026 - 2027 (ODD) | CLASS: 25IT3A                ");
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("   Scenario 15: Blood Donation Management and Donor Availability Analysis System");
         System.out.println("   Developed by: Karan Raajaa V  |  Register No: 732925ITR045 (Roll No. 45)      ");
@@ -442,3 +442,4 @@ public class Main {
         System.out.println("================================================================================\n");
     }
 }
+

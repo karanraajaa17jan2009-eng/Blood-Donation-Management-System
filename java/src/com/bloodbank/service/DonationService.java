@@ -96,3 +96,4 @@ public class DonationService {
         public String getMessage() { return message; }
     }
 }
+

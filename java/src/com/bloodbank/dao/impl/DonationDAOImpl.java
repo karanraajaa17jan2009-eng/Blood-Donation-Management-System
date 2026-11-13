@@ -104,3 +104,4 @@ public class DonationDAOImpl implements DonationDAO {
         return getAllDonations().size();
     }
 }
+

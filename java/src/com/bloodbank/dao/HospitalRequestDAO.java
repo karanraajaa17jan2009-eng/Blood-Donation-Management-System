@@ -15,3 +15,4 @@ public interface HospitalRequestDAO {
     List<HospitalRequest> getPendingRequests();
     boolean updateStatus(int requestId, String status, String authorizedBy);
 }
+

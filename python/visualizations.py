@@ -1,7 +1,7 @@
 """
 Data Visualization Engine
 Scenario 15: Blood Donation Management and Donor Availability Analysis System
-Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A&B
+Student: Karan Raajaa V | Register No: 732925ITR045 | Class: 25IT3A
 Institution: Velalar College of Engineering and Technology, Erode - 12
 """
 
@@ -451,3 +451,4 @@ def generate_all_visualizations():
 
 if __name__ == "__main__":
     generate_all_visualizations()
+
