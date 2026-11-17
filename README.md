@@ -1,11 +1,18 @@
 # Blood Donation Management and Donor Availability Analysis System
 ### Academic Activity: Project-Based Assessment — Scenario 15
 
+[![Live Website](https://img.shields.io/badge/🌐%20Live%20Website-24%2F7%20Online-success?style=for-the-badge&logo=googlechrome&logoColor=white)](https://karanraajaa17jan2009-eng.github.io/Blood-Donation-Management-System/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/karanraajaa17jan2009-eng/Blood-Donation-Management-System)
 [![Java Version](https://img.shields.io/badge/Java-JDK%2017%20--%2026-orange.svg)](https://www.oracle.com/java/)
 [![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.11-blue.svg)](https://www.python.org/)
 [![Database](https://img.shields.io/badge/DBMS-SQLite%20%7C%20MySQL-green.svg)](https://www.sqlite.org/)
 [![Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/Academic-Assessment-red.svg)]()
+
+> **🚀 LIVE RUNNING INTERACTIVE WEBSITE (24/7):**  
+> Access the live cloud deployment directly at:  
+> 👉 **[https://karanraajaa17jan2009-eng.github.io/Blood-Donation-Management-System/](https://karanraajaa17jan2009-eng.github.io/Blood-Donation-Management-System/)**  
+> *(Features live blood stock inventory tracking, donor registration form, 90-day cooldown eligibility analyzer, emergency hospital requisitions, and interactive Chart.js visualizations!)*
 
 ---
 
@@ -226,6 +233,23 @@ This single command executes:
 #### Interactive Jupyter Notebook:
 To launch the Jupyter Notebook for interactive exploration:
 ```powershell
+jupyter notebook python/analysis_notebook.ipynb
+```
+
+---
+
+### 4. Interactive 24/7 Live Website
+
+#### Option A: Access Live on the Web (GitHub Pages)
+The web application is hosted live 24/7 with zero installation:
+👉 **[https://karanraajaa17jan2009-eng.github.io/Blood-Donation-Management-System/](https://karanraajaa17jan2009-eng.github.io/Blood-Donation-Management-System/)**
+
+#### Option B: Run the Website Locally (One-Click)
+Double-click **`run_website.bat`** in the project folder, or run:
+```powershell
+.\.venv\Scripts\python.exe -m http.server 8000
+```
+Then open `http://localhost:8000` in your browser.
 jupyter notebook python/analysis_notebook.ipynb
 ```
 

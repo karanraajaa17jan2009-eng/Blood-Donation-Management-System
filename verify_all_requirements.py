@@ -44,7 +44,9 @@ required_docs = [
     ("docs/Database_Design_and_Normalization.md", 1500),
     ("docs/Testing_Document_and_Test_Cases.md", 1500),
     ("sample_outputs/sample_inputs_and_outputs.md", 1000),
-    ("README.md", 2000)
+    ("README.md", 2000),
+    ("index.html", 5000),
+    ("run_website.bat", 100)
 ]
 
 for doc_path, min_len in required_docs:

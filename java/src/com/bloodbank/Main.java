@@ -33,10 +33,13 @@ public class Main {
     // Services
     private final DonorEligibilityService eligibilityService = new DonorEligibilityService(donorDAO);
     private final DonorService donorService = new DonorService(donorDAO);
-    private final DonationService donationService = new DonationService(donationDAO, donorDAO, bloodStockDAO, eligibilityService);
+    private final DonationService donationService = new DonationService(donationDAO, donorDAO, bloodStockDAO,
+            eligibilityService);
     private final InventoryService inventoryService = new InventoryService(bloodStockDAO);
-    private final HospitalRequestService hospitalRequestService = new HospitalRequestService(hospitalRequestDAO, bloodStockDAO);
-    private final ReportService reportService = new ReportService(bloodStockDAO, donorDAO, donationDAO, hospitalRequestDAO, eligibilityService);
+    private final HospitalRequestService hospitalRequestService = new HospitalRequestService(hospitalRequestDAO,
+            bloodStockDAO);
+    private final ReportService reportService = new ReportService(bloodStockDAO, donorDAO, donationDAO,
+            hospitalRequestDAO, eligibilityService);
 
     public static void main(String[] args) {
         Main app = new Main();
@@ -177,7 +180,8 @@ public class Main {
                     report.getDonor().getName(), report.getDonor().getBloodGroup(), report.getStatusMessage());
 
             if (!report.isEligible()) {
-                System.out.printf("\n[BLOCKED] Donation cannot be accepted. Medical cooldown active: %d days remaining.\n",
+                System.out.printf(
+                        "\n[BLOCKED] Donation cannot be accepted. Medical cooldown active: %d days remaining.\n",
                         report.getDaysRemaining());
                 return;
             }
@@ -190,11 +194,13 @@ public class Main {
 
             System.out.print("Enter Phlebotomist / Attending Nurse Name: ");
             String staff = scanner.nextLine().trim();
-            if (staff.isEmpty()) staff = "Staff Duty Officer";
+            if (staff.isEmpty())
+                staff = "Staff Duty Officer";
 
             System.out.print("Enter Clinical Remarks: ");
             String remarks = scanner.nextLine().trim();
-            if (remarks.isEmpty()) remarks = "Fit for donation";
+            if (remarks.isEmpty())
+                remarks = "Fit for donation";
 
             Donation donation = new Donation(0, donorId, report.getDonor().getBloodGroup(),
                     LocalDate.now(), units, hb, staff, remarks);
@@ -266,10 +272,10 @@ public class Main {
 
     private void printPendingHospitalRequests() {
         List<HospitalRequest> pending = hospitalRequestService.getPendingRequests();
-        String[] headers = {"Req ID", "Hospital Name", "Blood Group", "Units Needed", "Request Date", "Urgency"};
+        String[] headers = { "Req ID", "Hospital Name", "Blood Group", "Units Needed", "Request Date", "Urgency" };
         List<String[]> rows = new ArrayList<>();
         for (HospitalRequest r : pending) {
-            rows.add(new String[]{
+            rows.add(new String[] {
                     String.valueOf(r.getRequestId()),
                     r.getHospitalName(),
                     r.getBloodGroup(),
@@ -314,10 +320,10 @@ public class Main {
 
             System.out.print("Enter Authorizing Officer / Doctor Name: ");
             String authBy = scanner.nextLine().trim();
-            if (authBy.isEmpty()) authBy = "Duty Medical Officer";
+            if (authBy.isEmpty())
+                authBy = "Duty Medical Officer";
 
-            HospitalRequestService.RequestFulfillmentResult res =
-                    hospitalRequestService.fulfillRequest(reqId, authBy);
+            HospitalRequestService.RequestFulfillmentResult res = hospitalRequestService.fulfillRequest(reqId, authBy);
 
             if (res.isSuccess()) {
                 System.out.println("\n[SUCCESS] " + res.getMessage());
@@ -336,7 +342,8 @@ public class Main {
         System.out.println("\n--- [5] Donor Availability & 90-Day Eligibility Audit ---");
         System.out.print("Enter Blood Group filter (or press Enter / type ALL for all groups): ");
         String filter = scanner.nextLine().trim().toUpperCase();
-        if (filter.isEmpty()) filter = "ALL";
+        if (filter.isEmpty())
+            filter = "ALL";
 
         reportService.printDonorAvailabilityReport(filter);
     }
@@ -376,10 +383,11 @@ public class Main {
 
     private void printAllDonorsDirectory() {
         List<Donor> donors = donorService.getAllDonors();
-        String[] headers = {"ID", "Name", "Age", "Gender", "Blood Group", "Contact Number", "Email", "City", "Registered Date"};
+        String[] headers = { "ID", "Name", "Age", "Gender", "Blood Group", "Contact Number", "Email", "City",
+                "Registered Date" };
         List<String[]> rows = new ArrayList<>();
         for (Donor d : donors) {
-            rows.add(new String[]{
+            rows.add(new String[] {
                     String.valueOf(d.getDonorId()),
                     d.getName(),
                     String.valueOf(d.getAge()),
@@ -435,11 +443,11 @@ public class Main {
         System.out.println(" Courses Mapped  : 25ITT31 (DBMS), 25ITT32 (Java), 25ITT33 (SE), 25ITC31 (Data Science)");
         System.out.println(" Architecture    : Multi-Tier Layered Architecture (Model - DAO - Service - UI)");
         System.out.println(" Database Engine : SQLite 3 (Default) / MySQL 8.0+ Compatible");
-        System.out.println(" Database Status : " + (DatabaseManager.getInstance().isJdbcActive() ? "Connected via JDBC" : "Synchronized Memory Engine Active"));
+        System.out.println(" Database Status : " + (DatabaseManager.getInstance().isJdbcActive() ? "Connected via JDBC"
+                : "Synchronized Memory Engine Active"));
         System.out.println(" Registered Donors: " + donorDAO.getAllDonors().size());
         System.out.println(" Total Donations  : " + donationDAO.getTotalDonationCount());
         System.out.println(" Hospital Requests: " + hospitalRequestDAO.getAllRequests().size());
         System.out.println("================================================================================\n");
     }
 }
-
