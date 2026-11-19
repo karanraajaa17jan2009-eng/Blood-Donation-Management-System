@@ -1,0 +1,533 @@
+import os
+
+def update_chen_html():
+    with open('diagrams/chen_er_diagram.svg', 'r', encoding='utf-8') as f:
+        svg_content = f.read()
+
+    # Give the svg an ID if not present
+    if 'id="chenSvg"' not in svg_content:
+        svg_content = svg_content.replace('<svg ', '<svg id="chenSvg" ')
+
+    html_content = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chen Notation ER Diagram - Blood Donation Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {{
+            --teal-primary: #00585e;
+            --teal-light: #cdeff1;
+            --teal-border: #2a8f92;
+            --teal-dark: #00484b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --radius: 12px;
+        }}
+
+        * {{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }}
+
+        body {{
+            background-color: var(--bg);
+            color: #0f172a;
+            padding: 24px 16px;
+            line-height: 1.5;
+        }}
+
+        .container {{
+            max-width: 1400px;
+            margin: 0 auto;
+        }}
+
+        /* Academic Top Header */
+        .academic-card {{
+            background: linear-gradient(135deg, #004d40 0%, #002e26 100%);
+            color: white;
+            border-radius: var(--radius);
+            padding: 24px 30px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }}
+
+        .academic-title h1 {{
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }}
+
+        .academic-title p {{
+            color: #99f6e4;
+            font-size: 0.92rem;
+            margin-top: 6px;
+        }}
+
+        .student-pill {{
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            backdrop-filter: blur(4px);
+        }}
+
+        .student-pill strong {{
+            color: #5eead4;
+        }}
+
+        /* Navigation Bar */
+        .nav-links {{
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }}
+
+        .nav-btn {{
+            background: white;
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            border-radius: 8px;
+            color: #334155;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }}
+
+        .nav-btn:hover {{
+            border-color: #14b8a6;
+            color: #0f766e;
+            transform: translateY(-1px);
+        }}
+
+        .nav-btn.active {{
+            background: #0f766e;
+            color: white;
+            border-color: #0f766e;
+        }}
+
+        /* Diagram Toolbar */
+        .toolbar {{
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius) var(--radius) 0 0;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }}
+
+        .toolbar-group {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }}
+
+        .tool-btn {{
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }}
+
+        .tool-btn:hover {{
+            background: #e2e8f0;
+            color: #0f172a;
+        }}
+
+        .tool-btn.primary {{
+            background: #0d9488;
+            color: white;
+            border-color: #0d9488;
+        }}
+
+        .tool-btn.primary:hover {{
+            background: #0f766e;
+        }}
+
+        .filter-btn {{
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }}
+
+        .filter-btn:hover, .filter-btn.active {{
+            background: #ccfbf1;
+            color: #0f766e;
+            border-color: #5eead4;
+        }}
+
+        /* SVG Viewport & Canvas */
+        .canvas-container {{
+            background: white;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--shadow);
+            overflow: auto;
+            max-height: 85vh;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }}
+
+        .svg-wrapper {{
+            display: inline-block;
+            min-width: 100%;
+            max-width: 1400px;
+            transition: transform 0.2s ease;
+            transform-origin: top center;
+        }}
+
+        .svg-wrapper svg {{
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }}
+
+        /* Interactive highlight styles on SVG */
+        .dimmed {{
+            opacity: 0.15 !important;
+            transition: opacity 0.3s ease;
+        }}
+
+        .highlighted {{
+            filter: drop-shadow(0 0 10px rgba(13, 148, 136, 0.8));
+            transition: all 0.3s ease;
+        }}
+
+        /* Explanatory Cards Grid */
+        .info-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }}
+
+        .info-card {{
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            box-shadow: var(--shadow);
+        }}
+
+        .info-card h3 {{
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
+
+        .notation-table {{
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }}
+
+        .notation-table th, .notation-table td {{
+            padding: 8px 10px;
+            text-align: left;
+            border-bottom: 1px solid #f1f5f9;
+        }}
+
+        .notation-table th {{
+            color: #475569;
+            font-weight: 600;
+            background: #f8fafc;
+        }}
+
+        .symbol-badge {{
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }}
+
+        .sym-entity {{ background: #cdeff1; color: #004d40; border: 1px solid #2a8f92; }}
+        .sym-rel {{ background: #d6f4f5; color: #004d40; border: 1px solid #319799; transform: rotate(45deg); display: inline-block; width: 14px; height: 14px; margin-right: 4px; }}
+        .sym-attr {{ background: #e2f7f8; color: #004d40; border: 1px solid #3ba9ac; border-radius: 12px; }}
+        .sym-pk {{ background: #d4f3f4; color: #00484b; border: 1px solid #2a8f92; text-decoration: underline; }}
+
+        /* Footer */
+        footer {{
+            margin-top: 40px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            padding-bottom: 20px;
+        }}
+
+        @media (max-width: 768px) {{
+            .academic-card {{
+                flex-direction: column;
+                align-items: flex-start;
+            }}
+            .toolbar {{
+                flex-direction: column;
+                align-items: flex-start;
+            }}
+        }}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Academic Header -->
+    <div class="academic-card">
+        <div class="academic-title">
+            <h1>Peter Chen Notation ER Diagram</h1>
+            <p>Scenario 15: Blood Donation Management and Donor Availability Analysis System</p>
+        </div>
+        <div class="student-pill">
+            <strong>Student:</strong> Karan Raajaa V (Roll No: 45)<br>
+            <strong>Reg No:</strong> 732925ITR045 | <strong>Class:</strong> 25IT3A<br>
+            <strong>College:</strong> Velalar College of Engg & Tech, Erode
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="nav-links">
+        <a href="../index.html" class="nav-btn">← Back to Main Website</a>
+        <a href="chen_er_diagram.html" class="nav-btn active">🔷 Chen ER Diagram (Visual Style)</a>
+        <a href="er_diagram.html" class="nav-btn">📊 Crow's Foot Relational ER</a>
+        <a href="../docs/Entity_Relationship_Diagram.md" class="nav-btn">📖 ER Specification Doc</a>
+        <a href="../database/analytical_queries.sql" class="nav-btn">💾 SQL Queries</a>
+    </div>
+
+    <!-- Toolbar Controls -->
+    <div class="toolbar">
+        <div class="toolbar-group">
+            <span style="font-size: 0.82rem; font-weight: 700; color: #475569; margin-right: 4px;">FOCUS ENTITY:</span>
+            <button class="filter-btn active" onclick="filterEntity('all', event)">Show All</button>
+            <button class="filter-btn" onclick="filterEntity('donor', event)">Donor (8 attrs)</button>
+            <button class="filter-btn" onclick="filterEntity('donation', event)">Donation (6 attrs)</button>
+            <button class="filter-btn" onclick="filterEntity('blood-stock', event)">Blood Stock (4 attrs)</button>
+            <button class="filter-btn" onclick="filterEntity('hospital-request', event)">Hospital Request (8 attrs)</button>
+        </div>
+        <div class="toolbar-group">
+            <button class="tool-btn" onclick="zoomIn()">🔍 Zoom +</button>
+            <button class="tool-btn" onclick="zoomOut()">🔍 Zoom -</button>
+            <button class="tool-btn" onclick="resetZoom()">↺ Reset</button>
+            <a href="chen_er_diagram.svg" download="Chen_ER_Diagram_Scenario15.svg" class="tool-btn primary">⬇ Download SVG</a>
+            <button class="tool-btn" onclick="window.print()">🖨 Print / PDF</button>
+        </div>
+    </div>
+
+    <!-- Main Canvas with Inline SVG -->
+    <div class="canvas-container" id="canvasContainer">
+        <div class="svg-wrapper" id="svgWrapper">
+            {svg_content}
+        </div>
+    </div>
+
+    <!-- Detailed Explanation Grid -->
+    <div class="info-grid">
+        <!-- Card 1: Notation Reference -->
+        <div class="info-card">
+            <h3>📐 Peter Chen ER Notation Components</h3>
+            <p style="font-size: 0.85rem; color: #475569; margin-bottom: 12px;">
+                In the Peter Chen model, database entities, attributes, and associations are visually mapped using strict geometric symbols:
+            </p>
+            <table class="notation-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Component</th>
+                        <th>Blood Bank Schema Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="symbol-badge sym-entity">Rectangle</span></td>
+                        <td><strong>Entity Set</strong></td>
+                        <td><code>Donor</code>, <code>Donation</code>, <code>Blood_Stock</code>, <code>Hospital_Request</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol-badge sym-rel"></span> Diamond</td>
+                        <td><strong>Relationship</strong></td>
+                        <td><code>Makes</code> (1:N), <code>Increments</code> (N:1), <code>Supplies</code> (1:N)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol-badge sym-attr">Oval</span></td>
+                        <td><strong>Attribute</strong></td>
+                        <td><code>Name</code>, <code>Age</code>, <code>Units_Donated</code>, <code>Hemoglobin</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol-badge sym-pk">Underline</span></td>
+                        <td><strong>Key (PK)</strong></td>
+                        <td><u>Donor_ID</u>, <u>Donation_ID</u>, <u>Blood_Group</u>, <u>Request_ID</u></td>
+                    </tr>
+                    <tr>
+                        <td><strong>1 : N</strong></td>
+                        <td><strong>Cardinality</strong></td>
+                        <td>1 Donor can make N Donations; 1 Stock supplies N Requests</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Card 2: Schema Mapping -->
+        <div class="info-card">
+            <h3>🏥 Entities & Relationship Specifications</h3>
+            <ul style="font-size: 0.86rem; color: #334155; line-height: 1.8; padding-left: 20px;">
+                <li><strong>DONOR (1:N with DONATION):</strong> Represents registered voluntary blood donors. Attributes: <u>donor_id</u> (PK), name, age (18-65), gender, contact_number, email, city, registration_date.</li>
+                <li><strong>DONATION (N:1 with BLOOD_STOCK):</strong> Captures clinical donation sessions. Attributes: <u>donation_id</u> (PK), donation_date, units_donated, hemoglobin_level (≥12.0 g/dL), phlebotomist_name, remarks.</li>
+                <li><strong>BLOOD_STOCK (1:N with HOSPITAL_REQUEST):</strong> Central cold storage inventory categorized by 8 blood groups (A+, A-, B+, B-, AB+, AB-, O+, O-). Attributes: <u>blood_group</u> (PK), available_units, minimum_threshold, last_updated.</li>
+                <li><strong>HOSPITAL_REQUEST:</strong> Emergency and routine requisitions from healthcare facilities. Attributes: <u>request_id</u> (PK), hospital_name, units_requested, request_date, urgency_level, status, fulfillment_date, authorized_by.</li>
+            </ul>
+        </div>
+
+        <!-- Card 3: Academic Compliance -->
+        <div class="info-card">
+            <h3>🎓 Academic Alignment & BCNF Normalization</h3>
+            <p style="font-size: 0.86rem; color: #334155; line-height: 1.7;">
+                The schema satisfies Boyce-Codd Normal Form (BCNF) and 3NF. Every functional dependency X &rarr; Y has a candidate key as its determinant:
+            </p>
+            <div style="background: #f1f5f9; padding: 12px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; margin: 10px 0; color: #0f172a;">
+                • DONOR: donor_id &rarr; {{name, age, gender, contact, email, city, reg_date}}<br>
+                • DONATION: donation_id &rarr; {{donor_id, blood_group, donation_date, units, hgb, phleb}}<br>
+                • BLOOD_STOCK: blood_group &rarr; {{available_units, minimum_threshold, last_updated}}<br>
+                • HOSPITAL_REQUEST: request_id &rarr; {{hospital, blood_group, units, date, urgency, status}}
+            </div>
+            <p style="font-size: 0.82rem; color: #64748b;">
+                Zero transitive dependencies exist. Referential integrity is strictly maintained with Foreign Key constraints and automatic inventory synchronization triggers.
+            </p>
+        </div>
+    </div>
+
+    <!-- Academic Footer -->
+    <footer>
+        <p><strong>Department of Information Technology</strong> • Velalar College of Engineering and Technology, Erode - 638012</p>
+        <p style="margin-top: 4px;">Course: 25ITT31 Database Management Systems | Scenario 15: Blood Donation Management and Donor Availability Analysis</p>
+        <p style="margin-top: 4px; color: #0f766e; font-weight: 600;">Student: Karan Raajaa V (732925ITR045) • Class: 25IT3A • Roll No: 45</p>
+    </footer>
+</div>
+
+<script>
+    let currentZoom = 1.0;
+    const svgWrapper = document.getElementById('svgWrapper');
+
+    function zoomIn() {{
+        if (currentZoom < 2.0) {{
+            currentZoom += 0.15;
+            applyZoom();
+        }}
+    }}
+
+    function zoomOut() {{
+        if (currentZoom > 0.5) {{
+            currentZoom -= 0.15;
+            applyZoom();
+        }}
+    }}
+
+    function resetZoom() {{
+        currentZoom = 1.0;
+        applyZoom();
+    }}
+
+    function applyZoom() {{
+        svgWrapper.style.transform = `scale(${{currentZoom}})`;
+    }}
+
+    function filterEntity(entityName, evt) {{
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        if (evt && evt.target) {{
+            evt.target.classList.add('active');
+        }}
+
+        const groups = {{
+            'donor': ['entity-donor', 'attr-donor-id', 'attr-donor-name', 'attr-donor-age', 'attr-donor-gender', 'attr-donor-contact', 'attr-donor-email', 'attr-donor-city', 'attr-donor-regdate', 'rel-makes', 'rel-has-group'],
+            'donation': ['entity-donation', 'attr-donation-id', 'attr-donation-date', 'attr-donation-units', 'attr-donation-hgb', 'attr-donation-phleb', 'attr-donation-remarks', 'rel-makes', 'rel-increments'],
+            'blood-stock': ['entity-blood-stock', 'attr-stock-group', 'attr-stock-units', 'attr-stock-threshold', 'attr-stock-updated', 'rel-increments', 'rel-supplies', 'rel-has-group'],
+            'hospital-request': ['entity-hospital-request', 'attr-req-id', 'attr-req-hospital', 'attr-req-units', 'attr-req-date', 'attr-req-urgency', 'attr-req-status', 'attr-req-fulfillment', 'attr-req-auth', 'rel-supplies']
+        }};
+
+        const allElementIds = Object.values(groups).flat();
+
+        if (entityName === 'all') {{
+            allElementIds.forEach(id => {{
+                const el = document.getElementById(id);
+                if (el) {{
+                    el.classList.remove('dimmed');
+                    el.classList.remove('highlighted');
+                }}
+            }});
+            return;
+        }}
+
+        const activeIds = groups[entityName] || [];
+        allElementIds.forEach(id => {{
+            const el = document.getElementById(id);
+            if (el) {{
+                if (activeIds.includes(id)) {{
+                    el.classList.remove('dimmed');
+                    el.classList.add('highlighted');
+                }} else {{
+                    el.classList.add('dimmed');
+                    el.classList.remove('highlighted');
+                }}
+            }}
+        }});
+    }}
+</script>
+
+</body>
+</html>
+'''
+
+    out_path = os.path.join('diagrams', 'chen_er_diagram.html')
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write(html_content)
+    print(f"Updated {out_path} ({len(html_content)} bytes)")
+
+if __name__ == '__main__':
+    update_chen_html()

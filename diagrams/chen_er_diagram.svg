@@ -6,7 +6,7 @@
       <stop offset="100%" stop-color="#f8fcfc"/>
     </linearGradient>
     
-    <!-- Entity Box Gradient (Light Teal / Cyan) -->
+    <!-- Entity Box Gradient: Light Teal and Cyan -->
     <linearGradient id="entityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#cdeff1"/>
       <stop offset="60%" stop-color="#b8e6e9"/>
@@ -27,7 +27,7 @@
       <stop offset="100%" stop-color="#bee8ea"/>
     </linearGradient>
     
-    <!-- Key Attribute (PK) Oval Gradient (slightly more saturated) -->
+    <!-- Key Attribute PK Oval Gradient -->
     <linearGradient id="pkAttrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#d4f3f4"/>
       <stop offset="60%" stop-color="#bee9eb"/>
@@ -49,15 +49,15 @@
   <!-- Background Canvas -->
   <rect width="1400" height="1950" fill="url(#bgGrad)"/>
   
-  <!-- ==================== HEADER (Exact style as reference image) ==================== -->
+  <!-- SECTION: HEADER -->
   <g id="header-group">
     <text x="700" y="58" text-anchor="middle" font-size="34" font-weight="800" fill="#00585e" letter-spacing="-0.5">Blood Donation Management Database</text>
-    <text x="700" y="88" text-anchor="middle" font-size="15" font-weight="600" fill="#0f766e" letter-spacing="0.2">PETER CHEN ENTITY-RELATIONSHIP (ER) NOTATION • SCENARIO 15</text>
+    <text x="700" y="88" text-anchor="middle" font-size="15" font-weight="600" fill="#0f766e" letter-spacing="0.2">PETER CHEN ENTITY-RELATIONSHIP (ER) NOTATION * SCENARIO 15</text>
     <text x="700" y="112" text-anchor="middle" font-size="13" font-weight="500" fill="#64748b">Student: Karan Raajaa V (732925ITR045) | Class: 25IT3A | Department of IT, VCET Erode - 12</text>
     <line x1="250" y1="130" x2="1150" y2="130" stroke="#ccedee" stroke-width="1.5" stroke-dasharray="6,4"/>
   </g>
   
-  <!-- ==================== CONNECTOR LINES LAYER ==================== -->
+  <!-- SECTION: CONNECTOR LINES LAYER -->
   <g id="connector-lines" stroke="#4fa5a8" stroke-width="2" stroke-linecap="round">
     <!-- Lines for DONOR attributes -->
     <line x1="390" y1="205" x2="620" y2="280"/> <!-- Donor_ID (PK) -->
@@ -69,10 +69,10 @@
     <line x1="1060" y1="355" x2="790" y2="315"/> <!-- City -->
     <line x1="980" y1="425" x2="770" y2="333"/> <!-- Reg_Date -->
     
-    <!-- Line from DONOR to Relationship "Makes" -->
+    <!-- Line from DONOR to Relationship Makes -->
     <line x1="700" y1="333" x2="700" y2="475" stroke-width="2.5"/>
     
-    <!-- Line from "Makes" to DONATION -->
+    <!-- Line from Makes to DONATION -->
     <line x1="700" y1="565" x2="700" y2="678" stroke-width="2.5"/>
     
     <!-- Lines for DONATION attributes -->
@@ -83,10 +83,10 @@
     <line x1="1070" y1="710" x2="790" y2="710"/> <!-- Phlebotomist -->
     <line x1="1010" y1="800" x2="770" y2="743"/> <!-- Remarks -->
     
-    <!-- Line from DONATION to Relationship "Increments" -->
+    <!-- Line from DONATION to Relationship Increments -->
     <line x1="700" y1="743" x2="700" y2="885" stroke-width="2.5"/>
     
-    <!-- Line from "Increments" to BLOOD_STOCK -->
+    <!-- Line from Increments to BLOOD_STOCK -->
     <line x1="700" y1="975" x2="700" y2="1088" stroke-width="2.5"/>
     
     <!-- Lines for BLOOD_STOCK attributes -->
@@ -95,10 +95,10 @@
     <line x1="1010" y1="1060" x2="790" y2="1105"/> <!-- Min_Threshold -->
     <line x1="1030" y1="1170" x2="790" y2="1135"/> <!-- Last_Updated -->
     
-    <!-- Line from BLOOD_STOCK to Relationship "Supplies" -->
+    <!-- Line from BLOOD_STOCK to Relationship Supplies -->
     <line x1="700" y1="1153" x2="700" y2="1295" stroke-width="2.5"/>
     
-    <!-- Line from "Supplies" to HOSPITAL_REQUEST -->
+    <!-- Line from Supplies to HOSPITAL_REQUEST -->
     <line x1="700" y1="1385" x2="700" y2="1498" stroke-width="2.5"/>
     
     <!-- Lines for HOSPITAL_REQUEST attributes -->
@@ -111,11 +111,11 @@
     <line x1="1080" y1="1590" x2="820" y2="1545"/> <!-- Fulfillment_Date -->
     <line x1="1000" y1="1670" x2="790" y2="1563"/> <!-- Authorized_By -->
     
-    <!-- Cross Relationship: DONOR to BLOOD_STOCK ("Has Group") Side Curve -->
+    <!-- Cross Relationship: DONOR to BLOOD_STOCK Side Curve -->
     <path d="M 610,305 C 160,320 160,1050 610,1115" fill="none" stroke="#4fa5a8" stroke-width="1.8" stroke-dasharray="6,4"/>
   </g>
   
-  <!-- Side Relationship Diamond: "Has Group" on the curve -->
+  <!-- Side Relationship Diamond: Has Group on the curve -->
   <g id="rel-has-group" filter="url(#softShadow)">
     <polygon points="160,670 215,710 160,750 105,710" fill="url(#diamondGrad)" stroke="#319799" stroke-width="2"/>
     <!-- Glass reflection -->
@@ -124,23 +124,23 @@
     <text x="160" y="660" text-anchor="middle" font-size="11" font-weight="700" fill="#0f766e">N:1</text>
   </g>
   
-  <!-- ==================== CARDINALITY LABELS ==================== -->
+  <!-- SECTION: CARDINALITY LABELS -->
   <g id="cardinality-indicators" font-size="13" font-weight="800" fill="#00585e">
-    <!-- Makes: 1 (at Donor) to N (at Donation) -->
+    <!-- Makes: 1 at Donor to N at Donation -->
     <text x="715" y="360">1</text>
     <text x="715" y="665">N</text>
     
-    <!-- Increments: N (at Donation) to 1 (at Blood Stock) -->
+    <!-- Increments: N at Donation to 1 at Blood Stock -->
     <text x="715" y="775">N</text>
     <text x="715" y="1075">1</text>
     
-    <!-- Supplies: 1 (at Blood Stock) to N (at Hospital Request) -->
+    <!-- Supplies: 1 at Blood Stock to N at Hospital Request -->
     <text x="715" y="1185">1</text>
     <text x="715" y="1485">N</text>
   </g>
   
-  <!-- ==================== RELATIONSHIP DIAMONDS ==================== -->
-  <!-- Diamond 1: Makes / Contributes -->
+  <!-- SECTION: RELATIONSHIP DIAMONDS -->
+  <!-- Diamond 1: Makes -->
   <g id="rel-makes" filter="url(#softShadow)">
     <polygon points="700,475 785,520 700,565 615,520" fill="url(#diamondGrad)" stroke="#319799" stroke-width="2"/>
     <!-- Glass reflection highlight on right facet -->
@@ -164,11 +164,11 @@
     <text x="700" y="1345" text-anchor="middle" font-size="15" font-weight="700" fill="#004d40">Supplies</text>
   </g>
   
-  <!-- ==================== ENTITY RECTANGLES ==================== -->
+  <!-- SECTION: ENTITY RECTANGLES -->
   <!-- 1. ENTITY: DONOR -->
   <g id="entity-donor" filter="url(#softShadow)">
     <rect x="610" y="268" width="180" height="65" rx="5" ry="5" fill="url(#entityGrad)" stroke="#2a8f92" stroke-width="2"/>
-    <!-- Glass shine polygon on top right corner (matches reference image) -->
+    <!-- Glass shine polygon on top right corner -->
     <polygon points="740,268 790,268 790,318" fill="url(#glassReflection)"/>
     <line x1="740" y1="268" x2="790" y2="318" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.8"/>
     <text x="700" y="308" text-anchor="middle" font-size="17" font-weight="700" fill="#00484b" letter-spacing="0.5">Donor</text>
@@ -201,8 +201,8 @@
     <text x="700" y="1538" text-anchor="middle" font-size="17" font-weight="700" fill="#00484b" letter-spacing="0.5">Hospital Request</text>
   </g>
   
-  <!-- ==================== ATTRIBUTE OVALS / ELLIPSES ==================== -->
-  <!-- ----------------- DONOR ATTRIBUTES ----------------- -->
+  <!-- SECTION: ATTRIBUTE OVALS AND ELLIPSES -->
+  <!-- Section: Donor Attributes -->
   <!-- Key Attribute: Donor_ID (Underlined text denotes Primary Key in Chen Notation) -->
   <g id="attr-donor-id" filter="url(#softShadow)">
     <ellipse cx="390" cy="205" rx="65" ry="25" fill="url(#pkAttrGrad)" stroke="#2a8f92" stroke-width="2"/>
@@ -259,7 +259,7 @@
     <text x="980" y="430" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Reg_Date</text>
   </g>
   
-  <!-- ----------------- DONATION ATTRIBUTES ----------------- -->
+  <!-- Section: Donation Attributes -->
   <!-- Key Attribute: Donation_ID -->
   <g id="attr-donation-id" filter="url(#softShadow)">
     <ellipse cx="390" cy="620" rx="72" ry="25" fill="url(#pkAttrGrad)" stroke="#2a8f92" stroke-width="2"/>
@@ -302,7 +302,7 @@
     <text x="1010" y="805" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Remarks</text>
   </g>
   
-  <!-- ----------------- BLOOD_STOCK ATTRIBUTES ----------------- -->
+  <!-- Section: Blood Stock Attributes -->
   <!-- Key Attribute: Blood_Group -->
   <g id="attr-stock-group" filter="url(#softShadow)">
     <ellipse cx="390" cy="1060" rx="72" ry="25" fill="url(#pkAttrGrad)" stroke="#2a8f92" stroke-width="2"/>
@@ -331,7 +331,7 @@
     <text x="1030" y="1175" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Last_Updated</text>
   </g>
   
-  <!-- ----------------- HOSPITAL_REQUEST ATTRIBUTES ----------------- -->
+  <!-- Section: Hospital Request Attributes -->
   <!-- Key Attribute: Request_ID -->
   <g id="attr-req-id" filter="url(#softShadow)">
     <ellipse cx="380" cy="1430" rx="70" ry="25" fill="url(#pkAttrGrad)" stroke="#2a8f92" stroke-width="2"/>
@@ -388,7 +388,7 @@
     <text x="1000" y="1675" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Authorized_By</text>
   </g>
   
-  <!-- ==================== LEGEND & FOOTER ==================== -->
+  <!-- SECTION: LEGEND AND FOOTER -->
   <g id="legend" transform="translate(180, 1800)">
     <rect x="0" y="0" width="1040" height="95" rx="8" fill="#f0fafb" stroke="#bee8ea" stroke-width="1.5"/>
     <text x="520" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#00484b">PETER CHEN ER DIAGRAM NOTATION GUIDE</text>
@@ -410,6 +410,6 @@
     <text x="780" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="#00484b" text-decoration="underline">PK</text>
     <text x="830" y="60" font-size="12" font-weight="600" fill="#00484b">Key Attribute (Underlined)</text>
     
-    <text x="520" y="85" text-anchor="middle" font-size="11" fill="#64748b">Velalar College of Engineering and Technology • Department of IT • DBMS Laboratory (25ITT31)</text>
+    <text x="520" y="85" text-anchor="middle" font-size="11" fill="#64748b">Velalar College of Engineering and Technology * Department of IT * DBMS Laboratory (25ITT31)</text>
   </g>
 </svg>
