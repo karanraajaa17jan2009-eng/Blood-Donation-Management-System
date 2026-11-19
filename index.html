@@ -624,6 +624,7 @@
             <button class="nav-btn" onclick="switchTab('donate')">💉 Record Donation</button>
             <button class="nav-btn" onclick="switchTab('hospitals')">🏥 Hospital Requisitions</button>
             <button class="nav-btn" onclick="switchTab('analytics')">📈 Visual Analytics</button>
+            <button class="nav-btn" onclick="switchTab('erdiagram')">🗄️ ER Diagram</button>
             <button class="nav-btn" onclick="switchTab('docs')">📑 Docs & Schemas</button>
         </div>
     </nav>
@@ -1057,6 +1058,169 @@
                         <h3 style="font-size: 0.95rem; margin-bottom: 12px; color: var(--secondary);">Chart 4: Donor Age Demographics & Distribution</h3>
                         <canvas id="chart-age"></canvas>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- TAB: ER DIAGRAM -->
+        <!-- ================================================================= -->
+        <section id="tab-erdiagram" class="tab-section">
+            <div class="card">
+                <div class="card-header">
+                    <h2>🗄️ Entity-Relationship (ER) Architecture</h2>
+                    <div>
+                        <a href="diagrams/er_diagram.html" target="_blank" class="btn btn-primary btn-sm" style="text-decoration: none;">
+                            🖨️ Open Full-Screen / Printable Page ↗
+                        </a>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px;">
+                    Course: <strong>25ITT31 Database Management Systems</strong> | Normalization: <strong>Boyce-Codd Normal Form (BCNF)</strong>
+                </p>
+
+                <!-- Entities Cards Layout -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-bottom: 25px;">
+                    
+                    <!-- BLOOD_STOCK Card -->
+                    <div style="background: white; border: 2px solid #ef4444; border-radius: 8px; overflow: hidden;">
+                        <div style="background: #b91c1c; color: white; padding: 10px 14px; font-weight: 700; font-size: 0.95rem; display: flex; justify-content: space-between;">
+                            <span>BLOOD_STOCK</span>
+                            <span style="font-size: 0.7rem; background: rgba(0,0,0,0.25); padding: 2px 6px; border-radius: 4px;">Master</span>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.84rem;">
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span><strong style="color: #d97706;">[PK]</strong> blood_group</span>
+                                <span style="color: #64748b;">VARCHAR(5)</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>available_units</span>
+                                <span style="color: #64748b;">INT &ge; 0</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>minimum_threshold</span>
+                                <span style="color: #64748b;">INT &ge; 0</span>
+                            </li>
+                            <li style="padding: 8px 12px; display: flex; justify-content: space-between;">
+                                <span>last_updated</span>
+                                <span style="color: #64748b;">DATETIME</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- DONOR Card -->
+                    <div style="background: white; border: 2px solid #0284c7; border-radius: 8px; overflow: hidden;">
+                        <div style="background: #0369a1; color: white; padding: 10px 14px; font-weight: 700; font-size: 0.95rem; display: flex; justify-content: space-between;">
+                            <span>DONOR</span>
+                            <span style="font-size: 0.7rem; background: rgba(0,0,0,0.25); padding: 2px 6px; border-radius: 4px;">Master</span>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.84rem;">
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span><strong style="color: #d97706;">[PK]</strong> donor_id</span>
+                                <span style="color: #64748b;">INTEGER (AI)</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>name</span>
+                                <span style="color: #64748b;">VARCHAR(100)</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>age</span>
+                                <span style="color: #64748b;">18-65</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>contact_number</span>
+                                <span style="color: #64748b;">10 Digits</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span><strong style="color: #2563eb;">[FK]</strong> blood_group</span>
+                                <span style="color: #64748b;">&rarr; STOCK</span>
+                            </li>
+                            <li style="padding: 8px 12px; display: flex; justify-content: space-between;">
+                                <span>city, reg_date</span>
+                                <span style="color: #64748b;">VARCHAR/DATE</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- DONATION Card -->
+                    <div style="background: white; border: 2px solid #059669; border-radius: 8px; overflow: hidden;">
+                        <div style="background: #047857; color: white; padding: 10px 14px; font-weight: 700; font-size: 0.95rem; display: flex; justify-content: space-between;">
+                            <span>DONATION</span>
+                            <span style="font-size: 0.7rem; background: rgba(0,0,0,0.25); padding: 2px 6px; border-radius: 4px;">Transaction</span>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.84rem;">
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span><strong style="color: #d97706;">[PK]</strong> donation_id</span>
+                                <span style="color: #64748b;">INTEGER (AI)</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span><strong style="color: #2563eb;">[FK]</strong> donor_id</span>
+                                <span style="color: #64748b;">&rarr; DONOR</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span><strong style="color: #2563eb;">[FK]</strong> blood_group</span>
+                                <span style="color: #64748b;">&rarr; STOCK</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>donation_date</span>
+                                <span style="color: #64748b;">DATE</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>units_donated</span>
+                                <span style="color: #64748b;">INT &ge; 1</span>
+                            </li>
+                            <li style="padding: 8px 12px; display: flex; justify-content: space-between;">
+                                <span>hemoglobin_level</span>
+                                <span style="color: #64748b;">&ge; 12.0 g/dL</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- HOSPITAL_REQUEST Card -->
+                    <div style="background: white; border: 2px solid #7c3aed; border-radius: 8px; overflow: hidden;">
+                        <div style="background: #6d28d9; color: white; padding: 10px 14px; font-weight: 700; font-size: 0.95rem; display: flex; justify-content: space-between;">
+                            <span>HOSPITAL_REQUEST</span>
+                            <span style="font-size: 0.7rem; background: rgba(0,0,0,0.25); padding: 2px 6px; border-radius: 4px;">Transaction</span>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.84rem;">
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span><strong style="color: #d97706;">[PK]</strong> request_id</span>
+                                <span style="color: #64748b;">INTEGER (AI)</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>hospital_name</span>
+                                <span style="color: #64748b;">VARCHAR(120)</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span><strong style="color: #2563eb;">[FK]</strong> blood_group</span>
+                                <span style="color: #64748b;">&rarr; STOCK</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>units_requested</span>
+                                <span style="color: #64748b;">INT &gt; 0</span>
+                            </li>
+                            <li style="padding: 8px 12px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between;">
+                                <span>urgency_level</span>
+                                <span style="color: #64748b;">NORMAL/URGENT/CRITICAL</span>
+                            </li>
+                            <li style="padding: 8px 12px; display: flex; justify-content: space-between;">
+                                <span>status</span>
+                                <span style="color: #64748b;">PENDING/FULFILLED/REJECTED</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Relationship Specifications Box -->
+                <div style="background: #f8fafc; border: 1px dashed var(--border); padding: 15px; border-radius: 8px; font-size: 0.86rem; line-height: 1.8;">
+                    <strong>Relational Mapping Rules & Cardinalities:</strong>
+                    <ul style="padding-left: 20px; margin-top: 5px;">
+                        <li><strong>DONOR &rarr; DONATION (1 : N):</strong> A voluntary donor can donate multiple times over their lifetime; each donation record references exactly one donor.</li>
+                        <li><strong>DONATION &rarr; BLOOD_STOCK (N : 1):</strong> Every donation contributes blood units to the corresponding blood group inventory.</li>
+                        <li><strong>HOSPITAL_REQUEST &rarr; BLOOD_STOCK (N : 1):</strong> Every requisition references a blood group from the inventory; fulfilled requests decrement stock atomically.</li>
+                        <li><strong>Referential Integrity:</strong> Cascade deletion on donor removal; update cascade on blood group modifications.</li>
+                    </ul>
                 </div>
             </div>
         </section>

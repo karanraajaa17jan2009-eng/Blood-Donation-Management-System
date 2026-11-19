@@ -289,7 +289,9 @@ Detailed test specifications and execution logs are available in [Testing_Docume
 
 - 📘 [Software Requirements Specification (SRS Document)](file:///e:/Assingment_1/docs/SRS_Document.md)
 - 📐 [Architecture, Use Case, and Class Diagrams](file:///e:/Assingment_1/docs/Architecture_and_Design_Diagrams.md)
-- 🗄️ [Database Design, Relational Model & Normalization](file:///e:/Assingment_1/docs/Database_Design_and_Normalization.md)
+- 🗄️ [Dedicated Entity-Relationship (ER) Diagram Specification](file:///e:/Assingment_1/docs/Entity_Relationship_Diagram.md)
+- 🖨️ [Interactive / Printable Visual ER Diagram Page](file:///e:/Assingment_1/diagrams/er_diagram.html)
+- 📊 [Database Design, Relational Model & Normalization](file:///e:/Assingment_1/docs/Database_Design_and_Normalization.md)
 - 🧪 [Testing Techniques and Test Cases Documentation](file:///e:/Assingment_1/docs/Testing_Document_and_Test_Cases.md)
 - 💻 [Sample Inputs and Terminal Execution Walkthrough](file:///e:/Assingment_1/sample_outputs/sample_inputs_and_outputs.md)
 

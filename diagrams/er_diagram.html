@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity-Relationship (ER) Diagram - Blood Donation Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c0392b;
+            --primary-dark: #962d22;
+            --navy: #1e293b;
+            --navy-light: #334155;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #cbd5e1;
+            --pk-color: #d97706;
+            --fk-color: #2563eb;
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #0f172a;
+            padding: 30px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* Academic Header */
+        .academic-card {
+            background: linear-gradient(135deg, var(--navy) 0%, #0f172a 100%);
+            color: white;
+            border-radius: var(--radius);
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .academic-title h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .academic-title p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        .student-pill {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .student-pill strong {
+            color: #38bdf8;
+        }
+
+        /* ER Diagram Canvas / Board */
+        .diagram-board {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 35px 25px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .board-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .board-header h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .board-header p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* Visual Entity Cards Layout */
+        .entities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .entity-card {
+            background: #ffffff;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .entity-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .entity-header {
+            background: var(--navy);
+            color: white;
+            padding: 14px 18px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+
+        .entity-header.stock-header { background: #b91c1c; }
+        .entity-header.donor-header { background: #0369a1; }
+        .entity-header.donation-header { background: #047857; }
+        .entity-header.request-header { background: #6d28d9; }
+
+        .attribute-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.88rem;
+        }
+
+        .attribute-item {
+            padding: 10px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .attribute-item:last-child {
+            border-bottom: none;
+        }
+
+        .attr-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .attr-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: #64748b;
+        }
+
+        .tag-key {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+
+        .tag-pk {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .tag-fk {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* Relationship Flow Indicators */
+        .relationship-box {
+            background: #f8fafc;
+            border: 1px dashed #94a3b8;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 25px;
+        }
+
+        .relationship-box h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rel-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+        }
+
+        .rel-item {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .rel-item strong {
+            color: var(--primary);
+        }
+
+        .cardinality-badge {
+            background: #e2e8f0;
+            color: #334155;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 10px;
+            margin-left: 6px;
+        }
+
+        /* Action Buttons */
+        .action-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-print {
+            background: var(--navy);
+            color: white;
+        }
+
+        .btn-print:hover { background: var(--navy-light); }
+
+        .btn-back {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .btn-back:hover { background: #cbd5e1; }
+
+        /* Print Media Style */
+        @media print {
+            body { padding: 0; background: white; }
+            .action-bar { display: none; }
+            .academic-card { box-shadow: none; border: 1px solid #000; }
+            .diagram-board { box-shadow: none; border: 1px solid #000; }
+            .entity-card { box-shadow: none; border: 1px solid #000; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Action Bar (Print / PDF / Back) -->
+        <div class="action-bar">
+            <a href="../index.html" class="btn btn-back">&larr; Back to Live Website</a>
+            <button onclick="window.print()" class="btn btn-print">🖨️ Print / Save as PDF</button>
+        </div>
+
+        <!-- Academic Banner -->
+        <div class="academic-card">
+            <div class="academic-title">
+                <h1>Entity-Relationship (ER) Diagram</h1>
+                <p>Course: 25ITT31 - Database Management Systems | Velalar College of Engineering and Technology</p>
+            </div>
+            <div class="student-pill">
+                Student Name: <strong>Karan Raajaa V</strong><br>
+                Register No: <strong>732925ITR045</strong> (Roll No: 45)<br>
+                Class & Section: <strong>25IT3A</strong> | Scenario 15
+            </div>
+        </div>
+
+        <!-- Diagram Board -->
+        <div class="diagram-board">
+            <div class="board-header">
+                <h2>Database Schema & Entity-Relationship Architecture</h2>
+                <p>Relational representation of Blood Bank entities, primary keys, foreign key references, and cardinality constraints</p>
+            </div>
+
+            <!-- Entities Grid -->
+            <div class="entities-grid">
+
+                <!-- Entity 1: BLOOD_STOCK -->
+                <div class="entity-card">
+                    <div class="entity-header stock-header">
+                        <span>BLOOD_STOCK</span>
+                        <span style="font-size:0.75rem; background:rgba(0,0,0,0.25); padding:2px 8px; border-radius:4px;">Master Table</span>
+                    </div>
+                    <ul class="attribute-list">
+                        <li class="attribute-item">
+                            <div><span class="tag-key tag-pk">PK</span><span class="attr-name">blood_group</span></div>
+                            <span class="attr-type">VARCHAR(5)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">available_units</span></div>
+                            <span class="attr-type">INTEGER &ge; 0</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">minimum_threshold</span></div>
+                            <span class="attr-type">INTEGER &ge; 0</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">last_updated</span></div>
+                            <span class="attr-type">DATETIME</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Entity 2: DONOR -->
+                <div class="entity-card">
+                    <div class="entity-header donor-header">
+                        <span>DONOR</span>
+                        <span style="font-size:0.75rem; background:rgba(0,0,0,0.25); padding:2px 8px; border-radius:4px;">Master Table</span>
+                    </div>
+                    <ul class="attribute-list">
+                        <li class="attribute-item">
+                            <div><span class="tag-key tag-pk">PK</span><span class="attr-name">donor_id</span></div>
+                            <span class="attr-type">INTEGER (AI)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">name</span></div>
+                            <span class="attr-type">VARCHAR(100)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">age</span></div>
+                            <span class="attr-type">18 &le; INT &le; 65</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">gender</span></div>
+                            <span class="attr-type">VARCHAR(10)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">contact_number</span></div>
+                            <span class="attr-type">VARCHAR(15)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">email</span></div>
+                            <span class="attr-type">UNIQUE</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="tag-key tag-fk">FK</span><span class="attr-name">blood_group</span></div>
+                            <span class="attr-type">&rarr; BLOOD_STOCK</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">city</span></div>
+                            <span class="attr-type">VARCHAR(50)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">registration_date</span></div>
+                            <span class="attr-type">DATE</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Entity 3: DONATION -->
+                <div class="entity-card">
+                    <div class="entity-header donation-header">
+                        <span>DONATION</span>
+                        <span style="font-size:0.75rem; background:rgba(0,0,0,0.25); padding:2px 8px; border-radius:4px;">Transaction Table</span>
+                    </div>
+                    <ul class="attribute-list">
+                        <li class="attribute-item">
+                            <div><span class="tag-key tag-pk">PK</span><span class="attr-name">donation_id</span></div>
+                            <span class="attr-type">INTEGER (AI)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="tag-key tag-fk">FK</span><span class="attr-name">donor_id</span></div>
+                            <span class="attr-type">&rarr; DONOR</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="tag-key tag-fk">FK</span><span class="attr-name">blood_group</span></div>
+                            <span class="attr-type">&rarr; BLOOD_STOCK</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">donation_date</span></div>
+                            <span class="attr-type">DATE</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">units_donated</span></div>
+                            <span class="attr-type">INT &ge; 1</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">hemoglobin_level</span></div>
+                            <span class="attr-type">&ge; 12.0 g/dL</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">phlebotomist_name</span></div>
+                            <span class="attr-type">VARCHAR(100)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">remarks</span></div>
+                            <span class="attr-type">VARCHAR(255)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Entity 4: HOSPITAL_REQUEST -->
+                <div class="entity-card">
+                    <div class="entity-header request-header">
+                        <span>HOSPITAL_REQUEST</span>
+                        <span style="font-size:0.75rem; background:rgba(0,0,0,0.25); padding:2px 8px; border-radius:4px;">Transaction Table</span>
+                    </div>
+                    <ul class="attribute-list">
+                        <li class="attribute-item">
+                            <div><span class="tag-key tag-pk">PK</span><span class="attr-name">request_id</span></div>
+                            <span class="attr-type">INTEGER (AI)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">hospital_name</span></div>
+                            <span class="attr-type">VARCHAR(120)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="tag-key tag-fk">FK</span><span class="attr-name">blood_group</span></div>
+                            <span class="attr-type">&rarr; BLOOD_STOCK</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">units_requested</span></div>
+                            <span class="attr-type">INT &gt; 0</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">request_date</span></div>
+                            <span class="attr-type">DATE</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">urgency_level</span></div>
+                            <span class="attr-type">NORMAL / URGENT / CRITICAL</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">status</span></div>
+                            <span class="attr-type">PENDING / FULFILLED / REJECTED</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">fulfillment_date</span></div>
+                            <span class="attr-type">DATE (NULLABLE)</span>
+                        </li>
+                        <li class="attribute-item">
+                            <div><span class="attr-name">authorized_by</span></div>
+                            <span class="attr-type">VARCHAR(100)</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Relationships & Cardinality Breakdown -->
+            <div class="relationship-box">
+                <h3>🔗 Relational Mappings & Cardinality Specifications</h3>
+                <div class="rel-flow">
+                    <div class="rel-item">
+                        <strong>DONOR &rarr; DONATION:</strong>
+                        <span class="cardinality-badge">1 : N (One-to-Many)</span><br>
+                        A single registered donor can have multiple historical donation records (or zero if first-time). Each donation belongs strictly to one donor.
+                    </div>
+                    <div class="rel-item">
+                        <strong>DONATION &rarr; BLOOD_STOCK:</strong>
+                        <span class="cardinality-badge">N : 1 (Many-to-One)</span><br>
+                        Each donation event logs blood units collected and atomically increments the available inventory for that specific blood group.
+                    </div>
+                    <div class="rel-item">
+                        <strong>HOSPITAL_REQUEST &rarr; BLOOD_STOCK:</strong>
+                        <span class="cardinality-badge">N : 1 (Many-to-One)</span><br>
+                        Hospital requisitions specify a required blood group. Upon fulfillment, units are decremented atomically from `BLOOD_STOCK`.
+                    </div>
+                    <div class="rel-item">
+                        <strong>DONOR &rarr; BLOOD_STOCK:</strong>
+                        <span class="cardinality-badge">N : 1 (Many-to-One)</span><br>
+                        Every donor is categorized under one of the 8 ABO/Rh blood groups established in the master inventory.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Normalization & Integrity Badges -->
+            <div style="background: #eef2ff; border: 1px solid #c7d2fe; padding: 15px 20px; border-radius: 8px; font-size: 0.88rem; color: #3730a3;">
+                <strong>Database Normalization Status:</strong> Fully compliant with <strong>Boyce-Codd Normal Form (BCNF)</strong>. All functional dependencies have superkey determinants, eliminating insertion, deletion, and update anomalies.
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
