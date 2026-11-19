@@ -44,6 +44,8 @@ required_docs = [
     ("docs/Database_Design_and_Normalization.md", 1500),
     ("docs/Entity_Relationship_Diagram.md", 2000),
     ("diagrams/er_diagram.html", 2000),
+    ("diagrams/chen_er_diagram.html", 2000),
+    ("diagrams/chen_er_diagram.svg", 5000),
     ("docs/Testing_Document_and_Test_Cases.md", 1500),
     ("sample_outputs/sample_inputs_and_outputs.md", 1000),
     ("README.md", 2000),

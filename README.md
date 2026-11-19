@@ -105,10 +105,15 @@ Assingment_1/
 │   ├── sample_data.sql                        # Realistic Seed Dataset (DML)
 │   ├── analytical_queries.sql                 # Syllabus-Mapped Complex SQL Queries
 │   └── extracted_csv/                         # CSV Exports of Database Tables
+├── diagrams/                                  # Visual Entity-Relationship Diagrams
+│   ├── chen_er_diagram.html                   # Interactive Chen Notation ER Diagram (Visual Style)
+│   ├── chen_er_diagram.svg                    # Scalable Vector Graphics (SVG) Peter Chen Model
+│   └── er_diagram.html                        # Full-Screen Printable Relational ER Diagram
 ├── docs/                                      # Software Engineering Documentation
 │   ├── SRS_Document.md                        # IEEE 830 Standard SRS Specification
 │   ├── Architecture_and_Design_Diagrams.md    # Architecture, Use Case & Class Diagrams
 │   ├── Database_Design_and_Normalization.md   # ER Diagram, Relational Model & Normalization (UNF to BCNF)
+│   ├── Entity_Relationship_Diagram.md         # Dedicated ER Specification & Data Dictionary
 │   └── Testing_Document_and_Test_Cases.md     # Testing Methodologies & 12 Test Cases (100% Pass)
 ├── java/                                      # Java Source Code
 │   ├── src/

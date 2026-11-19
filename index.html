@@ -1069,15 +1069,38 @@
             <div class="card">
                 <div class="card-header">
                     <h2>🗄️ Entity-Relationship (ER) Architecture</h2>
-                    <div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <a href="diagrams/chen_er_diagram.html" target="_blank" class="btn btn-sm" style="background: #0f766e; color: white; text-decoration: none; font-weight: 700;">
+                            🔷 Open Chen Notation ER Diagram ↗
+                        </a>
                         <a href="diagrams/er_diagram.html" target="_blank" class="btn btn-primary btn-sm" style="text-decoration: none;">
-                            🖨️ Open Full-Screen / Printable Page ↗
+                            📊 Crow's Foot Relational Page ↗
+                        </a>
+                        <a href="diagrams/chen_er_diagram.svg" download="Chen_ER_Diagram.svg" class="btn btn-sm" style="background: #e2e8f0; color: #334155; text-decoration: none;">
+                            ⬇ Download SVG
                         </a>
                     </div>
                 </div>
                 <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px;">
-                    Course: <strong>25ITT31 Database Management Systems</strong> | Normalization: <strong>Boyce-Codd Normal Form (BCNF)</strong>
+                    Course: <strong>25ITT31 Database Management Systems</strong> | Normalization: <strong>Boyce-Codd Normal Form (BCNF)</strong> | Student: <strong>Karan Raajaa V (732925ITR045)</strong>
                 </p>
+
+                <!-- Dedicated Chen ER Diagram Interactive Preview Banner -->
+                <div style="background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 100%); border: 2px solid #5eead4; border-radius: 10px; padding: 18px 22px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <div>
+                        <h3 style="color: #0f766e; font-size: 1.05rem; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                            🔷 Peter Chen ER Notation Diagram (Textbook Style)
+                        </h3>
+                        <p style="font-size: 0.84rem; color: #115e59;">
+                            Classical entity-relationship model with <strong>Rectangles</strong> (Entity Sets), <strong>Diamonds</strong> (Relationships), and <strong>Ovals</strong> (Attributes with Primary Keys underlined).
+                        </p>
+                    </div>
+                    <div>
+                        <a href="diagrams/chen_er_diagram.html" target="_blank" class="btn" style="background: #0d9488; color: white; text-decoration: none; font-weight: 700; padding: 8px 16px; border-radius: 6px; box-shadow: 0 2px 4px rgba(13,148,136,0.3);">
+                            🔍 View Full-Screen Interactive Chen Diagram &rarr;
+                        </a>
+                    </div>
+                </div>
 
                 <!-- Entities Cards Layout -->
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-bottom: 25px;">
@@ -1249,7 +1272,10 @@
                         <h3 style="font-size: 1rem; color: var(--primary); margin-bottom: 8px;">2. Database Systems & SQL (25ITT31)</h3>
                         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Relational models, ER diagram, BCNF normalization, views, and complex analytical SQL queries.</p>
                         <ul style="font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
-                            <li><a href="docs/Database_Design_and_Normalization.md" target="_blank" style="color: var(--info); font-weight: 600;">ER Diagram & Normalization Analysis</a></li>
+                            <li><a href="diagrams/chen_er_diagram.html" target="_blank" style="color: #0f766e; font-weight: 700;">🔷 Chen Notation ER Diagram (Visual Style)</a></li>
+                            <li><a href="diagrams/er_diagram.html" target="_blank" style="color: var(--info); font-weight: 600;">📊 Crow's Foot ER Diagram (Relational)</a></li>
+                            <li><a href="docs/Entity_Relationship_Diagram.md" target="_blank" style="color: var(--info); font-weight: 600;">ER Specification & Data Dictionary</a></li>
+                            <li><a href="docs/Database_Design_and_Normalization.md" target="_blank" style="color: var(--info); font-weight: 600;">Database Design & Normalization Analysis</a></li>
                             <li><a href="database/schema_sqlite.sql" target="_blank" style="color: var(--info); font-weight: 600;">SQLite DDL Schema & Views</a></li>
                             <li><a href="database/analytical_queries.sql" target="_blank" style="color: var(--info); font-weight: 600;">8 Analytical SQL Queries</a></li>
                         </ul>

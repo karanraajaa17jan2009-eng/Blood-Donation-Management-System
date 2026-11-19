@@ -194,23 +194,70 @@ Tracks blood requisitions submitted by medical facilities and their fulfillment 
 
 ---
 
-## 5. Conceptual Chen Notation Breakdown
+## 5. Conceptual Chen Notation ER Diagram (Peter Chen Model)
 
-In traditional Chen ER notation:
+> [!NOTE]
+> **Visual Chen Notation Diagram Available**:
+> - Interactive Web Viewer: [chen_er_diagram.html](file:///E:/Assingment_1/diagrams/chen_er_diagram.html)
+> - Scalable Vector Graphic (SVG): [chen_er_diagram.svg](file:///E:/Assingment_1/diagrams/chen_er_diagram.svg)
+
+In the classic **Peter Chen ER Model** (matching the traditional academic textbook style with rectangles for entities, diamonds for relationships, and ovals/ellipses for attributes):
+
+```
+                                  (Donor_ID) [PK]
+                                     /
+             (Name) ---- [ DONOR ] ---- (Age)
+                         /   |   \
+                   (Gender)  |  (Contact_No)
+                             |
+                         < Makes >  (1:N)
+                             |
+                                  (Donation_ID) [PK]
+                                     /
+        (Donation_Date) - [ DONATION ] - (Hemoglobin)
+                          /     |    \
+                (Units_Donated) |   (Phlebotomist)
+                                |
+                         < Increments >  (N:1)
+                                |
+                                  (Blood_Group) [PK]
+                                     /
+      (Available_Units) - [ BLOOD_STOCK ] - (Min_Threshold)
+                                |    \
+                                |   (Last_Updated)
+                                |
+                         < Supplies >  (1:N)
+                                |
+                                  (Request_ID) [PK]
+                                     /
+     (Hospital_Name) - [ HOSPITAL_REQUEST ] - (Urgency_Level)
+                       /      |         \
+              (Units_Req)  (Status)   (Fulfillment_Date)
+```
+
+### Chen Notation Component Mapping:
 1. **Entity Sets (Rectangles):**
-   - $\text{DONOR}$, $\text{DONATION}$, $\text{BLOOD_STOCK}$, $\text{HOSPITAL_REQUEST}$
+   - `DONOR`, `DONATION`, `BLOOD_STOCK`, `HOSPITAL_REQUEST`
 2. **Relationships (Diamonds):**
-   - $\text{Makes}$ (links $\text{DONOR}$ and $\text{DONATION}$)
-   - $\text{Has\_Type}$ (links $\text{DONOR}$ and $\text{BLOOD_STOCK}$)
-   - $\text{Increments}$ (links $\text{DONATION}$ and $\text{BLOOD_STOCK}$)
-   - $\text{Supplies}$ (links $\text{HOSPITAL_REQUEST}$ and $\text{BLOOD_STOCK}$)
-3. **Key Attributes (Underlined Ellipses):**
-   - $\underline{\text{donor\_id}}$, $\underline{\text{donation\_id}}$, $\underline{\text{blood\_group}}$, $\underline{\text{request\_id}}$
-4. **Derived Attributes (Dashed Ellipses):**
-   - $\text{days\_since\_last\_donation} = \text{CURRENT\_DATE} - \max(\text{donation\_date})$
-   - $\text{eligibility\_status} = \text{IF}(\text{days\_since} \ge 90, \text{'ELIGIBLE'}, \text{'INELIGIBLE'})$
-   - $\text{surplus\_deficit} = \text{available\_units} - \text{minimum\_threshold}$
-   - *(Implemented in the database via Views `v_donor_availability` and `v_stock_summary`)*
+   - `< Makes >` (1:N between `DONOR` and `DONATION`)
+   - `< Increments >` (N:1 between `DONATION` and `BLOOD_STOCK`)
+   - `< Supplies >` (1:N between `BLOOD_STOCK` and `HOSPITAL_REQUEST`)
+   - `< Has Group >` (N:1 between `DONOR` and `BLOOD_STOCK`)
+3. **Key Attributes (Underlined Text in Ellipses):**
+   - `Donor_ID` (Key Attribute of `DONOR`)
+   - `Donation_ID` (Key Attribute of `DONATION`)
+   - `Blood_Group` (Key Attribute of `BLOOD_STOCK`)
+   - `Request_ID` (Key Attribute of `HOSPITAL_REQUEST`)
+4. **Regular Attributes (Ellipses):**
+   - `DONOR`: `Name`, `Age`, `Gender`, `Contact_Number`, `Email`, `City`, `Reg_Date`
+   - `DONATION`: `Donation_Date`, `Units_Donated`, `Hemoglobin_Level`, `Phlebotomist_Name`, `Remarks`
+   - `BLOOD_STOCK`: `Available_Units`, `Minimum_Threshold`, `Last_Updated`
+   - `HOSPITAL_REQUEST`: `Hospital_Name`, `Units_Requested`, `Request_Date`, `Urgency_Level`, `Status`, `Fulfillment_Date`, `Authorized_By`
+5. **Derived Attributes (Dashed Ellipses):**
+   - `days_since_last_donation = CURRENT_DATE - MAX(donation_date)`
+   - `eligibility_status = IF(days_since >= 90, 'ELIGIBLE', 'INELIGIBLE')`
+   - `surplus_deficit = available_units - minimum_threshold`
+   - *(Implemented in the database via SQL Views `v_donor_availability` and `v_stock_summary`)*
 
 ---
 

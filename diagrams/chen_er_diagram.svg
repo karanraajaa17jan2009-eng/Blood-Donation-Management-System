@@ -1,0 +1,415 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1950" width="100%" height="100%" style="background:#ffffff; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- Gradients matching the reference image exactly -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fcfc"/>
+    </linearGradient>
+    
+    <!-- Entity Box Gradient (Light Teal / Cyan) -->
+    <linearGradient id="entityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cdeff1"/>
+      <stop offset="60%" stop-color="#b8e6e9"/>
+      <stop offset="100%" stop-color="#a4dcde"/>
+    </linearGradient>
+    
+    <!-- Relationship Diamond Gradient -->
+    <linearGradient id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d6f4f5"/>
+      <stop offset="50%" stop-color="#c2ecef"/>
+      <stop offset="100%" stop-color="#aee3e6"/>
+    </linearGradient>
+    
+    <!-- Attribute Oval Gradient -->
+    <linearGradient id="attrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2f7f8"/>
+      <stop offset="60%" stop-color="#d0f1f3"/>
+      <stop offset="100%" stop-color="#bee8ea"/>
+    </linearGradient>
+    
+    <!-- Key Attribute (PK) Oval Gradient (slightly more saturated) -->
+    <linearGradient id="pkAttrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4f3f4"/>
+      <stop offset="60%" stop-color="#bee9eb"/>
+      <stop offset="100%" stop-color="#a2dcdf"/>
+    </linearGradient>
+    
+    <!-- Glass reflection gradient -->
+    <linearGradient id="glassReflection" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+    
+    <!-- Soft drop shadow filter -->
+    <filter id="softShadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#054e53" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  
+  <!-- Background Canvas -->
+  <rect width="1400" height="1950" fill="url(#bgGrad)"/>
+  
+  <!-- ==================== HEADER (Exact style as reference image) ==================== -->
+  <g id="header-group">
+    <text x="700" y="58" text-anchor="middle" font-size="34" font-weight="800" fill="#00585e" letter-spacing="-0.5">Blood Donation Management Database</text>
+    <text x="700" y="88" text-anchor="middle" font-size="15" font-weight="600" fill="#0f766e" letter-spacing="0.2">PETER CHEN ENTITY-RELATIONSHIP (ER) NOTATION • SCENARIO 15</text>
+    <text x="700" y="112" text-anchor="middle" font-size="13" font-weight="500" fill="#64748b">Student: Karan Raajaa V (732925ITR045) | Class: 25IT3A | Department of IT, VCET Erode - 12</text>
+    <line x1="250" y1="130" x2="1150" y2="130" stroke="#ccedee" stroke-width="1.5" stroke-dasharray="6,4"/>
+  </g>
+  
+  <!-- ==================== CONNECTOR LINES LAYER ==================== -->
+  <g id="connector-lines" stroke="#4fa5a8" stroke-width="2" stroke-linecap="round">
+    <!-- Lines for DONOR attributes -->
+    <line x1="390" y1="205" x2="620" y2="280"/> <!-- Donor_ID (PK) -->
+    <line x1="330" y1="275" x2="610" y2="295"/> <!-- Name -->
+    <line x1="340" y1="355" x2="610" y2="315"/> <!-- Age -->
+    <line x1="420" y1="425" x2="630" y2="333"/> <!-- Gender -->
+    <line x1="1010" y1="205" x2="780" y2="280"/> <!-- Contact_No -->
+    <line x1="1070" y1="275" x2="790" y2="295"/> <!-- Email -->
+    <line x1="1060" y1="355" x2="790" y2="315"/> <!-- City -->
+    <line x1="980" y1="425" x2="770" y2="333"/> <!-- Reg_Date -->
+    
+    <!-- Line from DONOR to Relationship "Makes" -->
+    <line x1="700" y1="333" x2="700" y2="475" stroke-width="2.5"/>
+    
+    <!-- Line from "Makes" to DONATION -->
+    <line x1="700" y1="565" x2="700" y2="678" stroke-width="2.5"/>
+    
+    <!-- Lines for DONATION attributes -->
+    <line x1="390" y1="620" x2="620" y2="690"/> <!-- Donation_ID (PK) -->
+    <line x1="330" y1="710" x2="610" y2="710"/> <!-- Donation_Date -->
+    <line x1="390" y1="800" x2="630" y2="743"/> <!-- Units_Donated -->
+    <line x1="1010" y1="620" x2="780" y2="690"/> <!-- Hemoglobin -->
+    <line x1="1070" y1="710" x2="790" y2="710"/> <!-- Phlebotomist -->
+    <line x1="1010" y1="800" x2="770" y2="743"/> <!-- Remarks -->
+    
+    <!-- Line from DONATION to Relationship "Increments" -->
+    <line x1="700" y1="743" x2="700" y2="885" stroke-width="2.5"/>
+    
+    <!-- Line from "Increments" to BLOOD_STOCK -->
+    <line x1="700" y1="975" x2="700" y2="1088" stroke-width="2.5"/>
+    
+    <!-- Lines for BLOOD_STOCK attributes -->
+    <line x1="390" y1="1060" x2="610" y2="1105"/> <!-- Blood_Group (PK) -->
+    <line x1="370" y1="1170" x2="610" y2="1135"/> <!-- Available_Units -->
+    <line x1="1010" y1="1060" x2="790" y2="1105"/> <!-- Min_Threshold -->
+    <line x1="1030" y1="1170" x2="790" y2="1135"/> <!-- Last_Updated -->
+    
+    <!-- Line from BLOOD_STOCK to Relationship "Supplies" -->
+    <line x1="700" y1="1153" x2="700" y2="1295" stroke-width="2.5"/>
+    
+    <!-- Line from "Supplies" to HOSPITAL_REQUEST -->
+    <line x1="700" y1="1385" x2="700" y2="1498" stroke-width="2.5"/>
+    
+    <!-- Lines for HOSPITAL_REQUEST attributes -->
+    <line x1="380" y1="1430" x2="590" y2="1510"/> <!-- Request_ID (PK) -->
+    <line x1="310" y1="1510" x2="580" y2="1525"/> <!-- Hospital_Name -->
+    <line x1="320" y1="1590" x2="580" y2="1545"/> <!-- Units_Requested -->
+    <line x1="400" y1="1670" x2="610" y2="1563"/> <!-- Request_Date -->
+    <line x1="1020" y1="1430" x2="810" y2="1510"/> <!-- Urgency_Level -->
+    <line x1="1090" y1="1510" x2="820" y2="1525"/> <!-- Status -->
+    <line x1="1080" y1="1590" x2="820" y2="1545"/> <!-- Fulfillment_Date -->
+    <line x1="1000" y1="1670" x2="790" y2="1563"/> <!-- Authorized_By -->
+    
+    <!-- Cross Relationship: DONOR to BLOOD_STOCK ("Has Group") Side Curve -->
+    <path d="M 610,305 C 160,320 160,1050 610,1115" fill="none" stroke="#4fa5a8" stroke-width="1.8" stroke-dasharray="6,4"/>
+  </g>
+  
+  <!-- Side Relationship Diamond: "Has Group" on the curve -->
+  <g id="rel-has-group" filter="url(#softShadow)">
+    <polygon points="160,670 215,710 160,750 105,710" fill="url(#diamondGrad)" stroke="#319799" stroke-width="2"/>
+    <!-- Glass reflection -->
+    <polygon points="160,670 215,710 160,710" fill="url(#glassReflection)"/>
+    <text x="160" y="714" text-anchor="middle" font-size="12" font-weight="700" fill="#004d40">Has Group</text>
+    <text x="160" y="660" text-anchor="middle" font-size="11" font-weight="700" fill="#0f766e">N:1</text>
+  </g>
+  
+  <!-- ==================== CARDINALITY LABELS ==================== -->
+  <g id="cardinality-indicators" font-size="13" font-weight="800" fill="#00585e">
+    <!-- Makes: 1 (at Donor) to N (at Donation) -->
+    <text x="715" y="360">1</text>
+    <text x="715" y="665">N</text>
+    
+    <!-- Increments: N (at Donation) to 1 (at Blood Stock) -->
+    <text x="715" y="775">N</text>
+    <text x="715" y="1075">1</text>
+    
+    <!-- Supplies: 1 (at Blood Stock) to N (at Hospital Request) -->
+    <text x="715" y="1185">1</text>
+    <text x="715" y="1485">N</text>
+  </g>
+  
+  <!-- ==================== RELATIONSHIP DIAMONDS ==================== -->
+  <!-- Diamond 1: Makes / Contributes -->
+  <g id="rel-makes" filter="url(#softShadow)">
+    <polygon points="700,475 785,520 700,565 615,520" fill="url(#diamondGrad)" stroke="#319799" stroke-width="2"/>
+    <!-- Glass reflection highlight on right facet -->
+    <polygon points="700,475 785,520 700,520" fill="url(#glassReflection)"/>
+    <text x="700" y="525" text-anchor="middle" font-size="15" font-weight="700" fill="#004d40">Makes</text>
+  </g>
+  
+  <!-- Diamond 2: Increments -->
+  <g id="rel-increments" filter="url(#softShadow)">
+    <polygon points="700,885 790,930 700,975 610,930" fill="url(#diamondGrad)" stroke="#319799" stroke-width="2"/>
+    <!-- Glass reflection highlight -->
+    <polygon points="700,885 790,930 700,930" fill="url(#glassReflection)"/>
+    <text x="700" y="935" text-anchor="middle" font-size="15" font-weight="700" fill="#004d40">Increments</text>
+  </g>
+  
+  <!-- Diamond 3: Supplies -->
+  <g id="rel-supplies" filter="url(#softShadow)">
+    <polygon points="700,1295 785,1340 700,1385 615,1340" fill="url(#diamondGrad)" stroke="#319799" stroke-width="2"/>
+    <!-- Glass reflection highlight -->
+    <polygon points="700,1295 785,1340 700,1340" fill="url(#glassReflection)"/>
+    <text x="700" y="1345" text-anchor="middle" font-size="15" font-weight="700" fill="#004d40">Supplies</text>
+  </g>
+  
+  <!-- ==================== ENTITY RECTANGLES ==================== -->
+  <!-- 1. ENTITY: DONOR -->
+  <g id="entity-donor" filter="url(#softShadow)">
+    <rect x="610" y="268" width="180" height="65" rx="5" ry="5" fill="url(#entityGrad)" stroke="#2a8f92" stroke-width="2"/>
+    <!-- Glass shine polygon on top right corner (matches reference image) -->
+    <polygon points="740,268 790,268 790,318" fill="url(#glassReflection)"/>
+    <line x1="740" y1="268" x2="790" y2="318" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text x="700" y="308" text-anchor="middle" font-size="17" font-weight="700" fill="#00484b" letter-spacing="0.5">Donor</text>
+  </g>
+  
+  <!-- 2. ENTITY: DONATION -->
+  <g id="entity-donation" filter="url(#softShadow)">
+    <rect x="610" y="678" width="180" height="65" rx="5" ry="5" fill="url(#entityGrad)" stroke="#2a8f92" stroke-width="2"/>
+    <!-- Glass shine polygon -->
+    <polygon points="740,678 790,678 790,728" fill="url(#glassReflection)"/>
+    <line x1="740" y1="678" x2="790" y2="728" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text x="700" y="718" text-anchor="middle" font-size="17" font-weight="700" fill="#00484b" letter-spacing="0.5">Donation</text>
+  </g>
+  
+  <!-- 3. ENTITY: BLOOD_STOCK -->
+  <g id="entity-blood-stock" filter="url(#softShadow)">
+    <rect x="605" y="1088" width="190" height="65" rx="5" ry="5" fill="url(#entityGrad)" stroke="#2a8f92" stroke-width="2"/>
+    <!-- Glass shine polygon -->
+    <polygon points="745,1088 795,1088 795,1138" fill="url(#glassReflection)"/>
+    <line x1="745" y1="1088" x2="795" y2="1138" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text x="700" y="1128" text-anchor="middle" font-size="17" font-weight="700" fill="#00484b" letter-spacing="0.5">Blood Stock</text>
+  </g>
+  
+  <!-- 4. ENTITY: HOSPITAL_REQUEST -->
+  <g id="entity-hospital-request" filter="url(#softShadow)">
+    <rect x="585" y="1498" width="230" height="65" rx="5" ry="5" fill="url(#entityGrad)" stroke="#2a8f92" stroke-width="2"/>
+    <!-- Glass shine polygon -->
+    <polygon points="765,1498 815,1498 815,1548" fill="url(#glassReflection)"/>
+    <line x1="765" y1="1498" x2="815" y2="1548" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text x="700" y="1538" text-anchor="middle" font-size="17" font-weight="700" fill="#00484b" letter-spacing="0.5">Hospital Request</text>
+  </g>
+  
+  <!-- ==================== ATTRIBUTE OVALS / ELLIPSES ==================== -->
+  <!-- ----------------- DONOR ATTRIBUTES ----------------- -->
+  <!-- Key Attribute: Donor_ID (Underlined text denotes Primary Key in Chen Notation) -->
+  <g id="attr-donor-id" filter="url(#softShadow)">
+    <ellipse cx="390" cy="205" rx="65" ry="25" fill="url(#pkAttrGrad)" stroke="#2a8f92" stroke-width="2"/>
+    <path d="M 420,185 A 65 25 0 0 1 450,205" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="390" y="210" text-anchor="middle" font-size="13" font-weight="700" fill="#00484b" text-decoration="underline">Donor_ID</text>
+  </g>
+  
+  <!-- Attribute: Name -->
+  <g id="attr-donor-name" filter="url(#softShadow)">
+    <ellipse cx="330" cy="275" rx="60" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 360,255 A 60 25 0 0 1 385,275" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="330" y="280" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Name</text>
+  </g>
+  
+  <!-- Attribute: Age -->
+  <g id="attr-donor-age" filter="url(#softShadow)">
+    <ellipse cx="340" cy="355" rx="55" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 370,335 A 55 25 0 0 1 390,355" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="340" y="360" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Age</text>
+  </g>
+  
+  <!-- Attribute: Gender -->
+  <g id="attr-donor-gender" filter="url(#softShadow)">
+    <ellipse cx="420" cy="425" rx="60" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 450,405 A 60 25 0 0 1 475,425" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="420" y="430" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Gender</text>
+  </g>
+  
+  <!-- Attribute: Contact_Number -->
+  <g id="attr-donor-contact" filter="url(#softShadow)">
+    <ellipse cx="1010" cy="205" rx="72" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1045,185 A 72 25 0 0 1 1075,205" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1010" y="210" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Contact_No</text>
+  </g>
+  
+  <!-- Attribute: Email -->
+  <g id="attr-donor-email" filter="url(#softShadow)">
+    <ellipse cx="1070" cy="275" rx="60" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1100,255 A 60 25 0 0 1 1125,275" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1070" y="280" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Email</text>
+  </g>
+  
+  <!-- Attribute: City -->
+  <g id="attr-donor-city" filter="url(#softShadow)">
+    <ellipse cx="1060" cy="355" rx="55" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1090,335 A 55 25 0 0 1 1110,355" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1060" y="360" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">City</text>
+  </g>
+  
+  <!-- Attribute: Reg_Date -->
+  <g id="attr-donor-regdate" filter="url(#softShadow)">
+    <ellipse cx="980" cy="425" rx="65" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1015,405 A 65 25 0 0 1 1040,425" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="980" y="430" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Reg_Date</text>
+  </g>
+  
+  <!-- ----------------- DONATION ATTRIBUTES ----------------- -->
+  <!-- Key Attribute: Donation_ID -->
+  <g id="attr-donation-id" filter="url(#softShadow)">
+    <ellipse cx="390" cy="620" rx="72" ry="25" fill="url(#pkAttrGrad)" stroke="#2a8f92" stroke-width="2"/>
+    <path d="M 425,600 A 72 25 0 0 1 455,620" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="390" y="625" text-anchor="middle" font-size="13" font-weight="700" fill="#00484b" text-decoration="underline">Donation_ID</text>
+  </g>
+  
+  <!-- Attribute: Donation_Date -->
+  <g id="attr-donation-date" filter="url(#softShadow)">
+    <ellipse cx="330" cy="710" rx="75" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 370,690 A 75 25 0 0 1 400,710" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="330" y="715" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Donation_Date</text>
+  </g>
+  
+  <!-- Attribute: Units_Donated -->
+  <g id="attr-donation-units" filter="url(#softShadow)">
+    <ellipse cx="390" cy="800" rx="72" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 425,780 A 72 25 0 0 1 455,800" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="390" y="805" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Units_Donated</text>
+  </g>
+  
+  <!-- Attribute: Hemoglobin -->
+  <g id="attr-donation-hgb" filter="url(#softShadow)">
+    <ellipse cx="1010" cy="620" rx="75" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1045,600 A 75 25 0 0 1 1075,620" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1010" y="625" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Hemoglobin</text>
+  </g>
+  
+  <!-- Attribute: Phlebotomist -->
+  <g id="attr-donation-phleb" filter="url(#softShadow)">
+    <ellipse cx="1070" cy="710" rx="75" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1105,690 A 75 25 0 0 1 1135,710" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1070" y="715" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Phlebotomist</text>
+  </g>
+  
+  <!-- Attribute: Remarks -->
+  <g id="attr-donation-remarks" filter="url(#softShadow)">
+    <ellipse cx="1010" cy="800" rx="65" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1045,780 A 65 25 0 0 1 1070,800" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1010" y="805" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Remarks</text>
+  </g>
+  
+  <!-- ----------------- BLOOD_STOCK ATTRIBUTES ----------------- -->
+  <!-- Key Attribute: Blood_Group -->
+  <g id="attr-stock-group" filter="url(#softShadow)">
+    <ellipse cx="390" cy="1060" rx="72" ry="25" fill="url(#pkAttrGrad)" stroke="#2a8f92" stroke-width="2"/>
+    <path d="M 425,1040 A 72 25 0 0 1 455,1060" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="390" y="1065" text-anchor="middle" font-size="13" font-weight="700" fill="#00484b" text-decoration="underline">Blood_Group</text>
+  </g>
+  
+  <!-- Attribute: Available_Units -->
+  <g id="attr-stock-units" filter="url(#softShadow)">
+    <ellipse cx="370" cy="1170" rx="75" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 410,1150 A 75 25 0 0 1 440,1170" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="370" y="1175" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Available_Units</text>
+  </g>
+  
+  <!-- Attribute: Min_Threshold -->
+  <g id="attr-stock-threshold" filter="url(#softShadow)">
+    <ellipse cx="1010" cy="1060" rx="75" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1045,1040 A 75 25 0 0 1 1075,1060" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1010" y="1065" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Min_Threshold</text>
+  </g>
+  
+  <!-- Attribute: Last_Updated -->
+  <g id="attr-stock-updated" filter="url(#softShadow)">
+    <ellipse cx="1030" cy="1170" rx="72" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1065,1150 A 72 25 0 0 1 1095,1170" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1030" y="1175" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Last_Updated</text>
+  </g>
+  
+  <!-- ----------------- HOSPITAL_REQUEST ATTRIBUTES ----------------- -->
+  <!-- Key Attribute: Request_ID -->
+  <g id="attr-req-id" filter="url(#softShadow)">
+    <ellipse cx="380" cy="1430" rx="70" ry="25" fill="url(#pkAttrGrad)" stroke="#2a8f92" stroke-width="2"/>
+    <path d="M 415,1410 A 70 25 0 0 1 445,1430" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="380" y="1435" text-anchor="middle" font-size="13" font-weight="700" fill="#00484b" text-decoration="underline">Request_ID</text>
+  </g>
+  
+  <!-- Attribute: Hospital_Name -->
+  <g id="attr-req-hospital" filter="url(#softShadow)">
+    <ellipse cx="310" cy="1510" rx="75" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 350,1490 A 75 25 0 0 1 380,1510" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="310" y="1515" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Hospital_Name</text>
+  </g>
+  
+  <!-- Attribute: Units_Requested -->
+  <g id="attr-req-units" filter="url(#softShadow)">
+    <ellipse cx="320" cy="1590" rx="78" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 360,1570 A 78 25 0 0 1 390,1590" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="320" y="1595" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Units_Requested</text>
+  </g>
+  
+  <!-- Attribute: Request_Date -->
+  <g id="attr-req-date" filter="url(#softShadow)">
+    <ellipse cx="400" cy="1670" rx="70" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 435,1650 A 70 25 0 0 1 465,1670" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="400" y="1675" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Request_Date</text>
+  </g>
+  
+  <!-- Attribute: Urgency_Level -->
+  <g id="attr-req-urgency" filter="url(#softShadow)">
+    <ellipse cx="1020" cy="1430" rx="75" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1055,1410 A 75 25 0 0 1 1085,1430" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1020" y="1435" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Urgency_Level</text>
+  </g>
+  
+  <!-- Attribute: Status -->
+  <g id="attr-req-status" filter="url(#softShadow)">
+    <ellipse cx="1090" cy="1510" rx="55" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1120,1490 A 55 25 0 0 1 1140,1510" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1090" y="1515" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Status</text>
+  </g>
+  
+  <!-- Attribute: Fulfillment_Date -->
+  <g id="attr-req-fulfillment" filter="url(#softShadow)">
+    <ellipse cx="1080" cy="1590" rx="78" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1120,1570 A 78 25 0 0 1 1150,1590" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1080" y="1595" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Fulfillment_Date</text>
+  </g>
+  
+  <!-- Attribute: Authorized_By -->
+  <g id="attr-req-auth" filter="url(#softShadow)">
+    <ellipse cx="1000" cy="1670" rx="72" ry="25" fill="url(#attrGrad)" stroke="#3ba9ac" stroke-width="1.8"/>
+    <path d="M 1035,1650 A 72 25 0 0 1 1065,1670" stroke="#ffffff" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+    <text x="1000" y="1675" text-anchor="middle" font-size="13" font-weight="600" fill="#03484c">Authorized_By</text>
+  </g>
+  
+  <!-- ==================== LEGEND & FOOTER ==================== -->
+  <g id="legend" transform="translate(180, 1800)">
+    <rect x="0" y="0" width="1040" height="95" rx="8" fill="#f0fafb" stroke="#bee8ea" stroke-width="1.5"/>
+    <text x="520" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#00484b">PETER CHEN ER DIAGRAM NOTATION GUIDE</text>
+    
+    <!-- Entity Symbol -->
+    <rect x="50" y="42" width="70" height="28" rx="3" fill="#cdeff1" stroke="#2a8f92" stroke-width="1.5"/>
+    <text x="135" y="60" font-size="12" font-weight="600" fill="#03484c">Entity Set (e.g. Donor)</text>
+    
+    <!-- Relationship Symbol -->
+    <polygon points="360,40 380,56 360,72 340,56" fill="#d6f4f5" stroke="#319799" stroke-width="1.5"/>
+    <text x="395" y="60" font-size="12" font-weight="600" fill="#03484c">Relationship (e.g. Makes)</text>
+    
+    <!-- Attribute Symbol -->
+    <ellipse cx="615" cy="56" rx="30" ry="14" fill="#e2f7f8" stroke="#3ba9ac" stroke-width="1.5"/>
+    <text x="660" y="60" font-size="12" font-weight="600" fill="#03484c">Attribute</text>
+    
+    <!-- Key Attribute Symbol -->
+    <ellipse cx="780" cy="56" rx="35" ry="14" fill="#d4f3f4" stroke="#2a8f92" stroke-width="1.5"/>
+    <text x="780" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="#00484b" text-decoration="underline">PK</text>
+    <text x="830" y="60" font-size="12" font-weight="600" fill="#00484b">Key Attribute (Underlined)</text>
+    
+    <text x="520" y="85" text-anchor="middle" font-size="11" fill="#64748b">Velalar College of Engineering and Technology • Department of IT • DBMS Laboratory (25ITT31)</text>
+  </g>
+</svg>
