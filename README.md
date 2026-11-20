@@ -105,7 +105,9 @@ Assingment_1/
 │   ├── sample_data.sql                        # Realistic Seed Dataset (DML)
 │   ├── analytical_queries.sql                 # Syllabus-Mapped Complex SQL Queries
 │   └── extracted_csv/                         # CSV Exports of Database Tables
-├── diagrams/                                  # Visual Entity-Relationship Diagrams
+├── diagrams/                                  # Visual System & Architecture Diagrams
+│   ├── class_diagram.html                     # Interactive UML Class Diagram (3-Compartment Visual Style)
+│   ├── class_diagram.svg                      # Scalable Vector Graphics (SVG) UML Class Model
 │   ├── chen_er_diagram.html                   # Interactive Chen Notation ER Diagram (Visual Style)
 │   ├── chen_er_diagram.svg                    # Scalable Vector Graphics (SVG) Peter Chen Model
 │   └── er_diagram.html                        # Full-Screen Printable Relational ER Diagram

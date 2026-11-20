@@ -47,6 +47,8 @@ required_docs = [
     ("diagrams/er_diagram.html", 2000),
     ("diagrams/chen_er_diagram.html", 2000),
     ("diagrams/chen_er_diagram.svg", 5000),
+    ("diagrams/class_diagram.html", 2000),
+    ("diagrams/class_diagram.svg", 3000),
     ("docs/Testing_Document_and_Test_Cases.md", 1500),
     ("sample_outputs/sample_inputs_and_outputs.md", 1000),
     ("README.md", 2000),

@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1080" width="100%" height="100%" style="background:#ffffff; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- Shadow filter -->
+    <filter id="boxShadow" x="-5%" y="-5%" width="112%" height="112%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    
+    <!-- Arrow Markers -->
+    <marker id="generalization" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="14" markerHeight="14" orient="auto">
+      <polygon points="0,0 16,8 0,16" fill="#ffffff" stroke="#1e293b" stroke-width="1.8"/>
+    </marker>
+    <marker id="assocArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <polygon points="0,2 10,6 0,10" fill="#1e293b"/>
+    </marker>
+    <marker id="depArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <polygon points="0,2 10,6 0,10" fill="#0d9488"/>
+    </marker>
+  </defs>
+  
+  <!-- Background Canvas -->
+  <rect width="1200" height="1080" fill="#ffffff"/>
+  
+  <!-- ==================== HEADER (Exact style as reference image) ==================== -->
+  <g id="header-group">
+    <text x="600" y="48" text-anchor="middle" font-size="34" font-weight="800" fill="#0f172a" letter-spacing="-0.5">Class Diagram</text>
+    <text x="600" y="74" text-anchor="middle" font-size="14" font-weight="600" fill="#0f766e" letter-spacing="0.2">SCENARIO 15: BLOOD DONATION MANAGEMENT AND DONOR AVAILABILITY ANALYSIS SYSTEM</text>
+    <text x="600" y="95" text-anchor="middle" font-size="12" font-weight="500" fill="#64748b">Student: Karan Raajaa V (732925ITR045) | Class: 25IT3A | Department of IT, VCET Erode - 12</text>
+    <line x1="150" y1="110" x2="1050" y2="110" stroke="#e2e8f0" stroke-width="1.5"/>
+  </g>
+  
+  <!-- ==================== PART 1: GENERALIZATION / INHERITANCE HIERARCHY ==================== -->
+  <!-- Matches reference image structure: Parent Class at Top, 3 Subclasses below with arrows -->
+  
+  <!-- Generalization Connector Lines with Hollow Triangle Arrow -->
+  <g id="inheritance-lines" stroke="#1e293b" stroke-width="1.8" stroke-linecap="round">
+    <!-- Line from Donor (left) up to Person -->
+    <path d="M 210,310 L 210,265 L 590,265 L 590,230" fill="none" marker-end="url(#generalization)"/>
+    
+    <!-- Line from Phlebotomist (middle) straight up to Person -->
+    <line x1="600" y1="310" x2="600" y2="230" marker-end="url(#generalization)"/>
+    
+    <!-- Line from HospitalRepresentative (right) up to Person -->
+    <path d="M 990,310 L 990,265 L 610,265 L 610,230" fill="none" marker-end="url(#generalization)"/>
+  </g>
+  
+  <!-- TOP PARENT CLASS: Person -->
+  <g id="class-person" filter="url(#boxShadow)">
+    <rect x="460" y="125" width="280" height="105" fill="#f1f5f9" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="460" y="125" width="280" height="26" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="600" y="143" text-anchor="middle" font-size="14" font-weight="800" fill="#0f172a">Person</text>
+    <!-- Attributes Compartment -->
+    <text x="472" y="165" font-size="11" font-weight="600" fill="#1e293b">+id: int</text>
+    <text x="472" y="179" font-size="11" font-weight="600" fill="#1e293b">+name: String</text>
+    <text x="472" y="193" font-size="11" font-weight="600" fill="#1e293b">+contactNumber: String</text>
+    <line x1="460" y1="199" x2="740" y2="199" stroke="#1e293b" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="472" y="214" font-size="11" font-weight="600" fill="#1e293b">+getContactDetails(): String</text>
+    <text x="472" y="226" font-size="11" font-weight="600" fill="#1e293b">+validateDetails(): boolean</text>
+  </g>
+  
+  <!-- SUBCLASS 1 (LEFT): Donor (extends Person) -->
+  <g id="class-donor" filter="url(#boxShadow)">
+    <rect x="70" y="310" width="280" height="135" fill="#f8fafc" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="70" y="310" width="280" height="26" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="210" y="328" text-anchor="middle" font-size="14" font-weight="800" fill="#0f172a">Donor</text>
+    <!-- Attributes Compartment -->
+    <text x="82" y="350" font-size="11" font-weight="600" fill="#1e293b">+age: int</text>
+    <text x="82" y="364" font-size="11" font-weight="600" fill="#1e293b">+gender: String</text>
+    <text x="82" y="378" font-size="11" font-weight="600" fill="#1e293b">+bloodGroup: String</text>
+    <text x="82" y="392" font-size="11" font-weight="600" fill="#1e293b">+registrationDate: LocalDate</text>
+    <line x1="70" y1="398" x2="350" y2="398" stroke="#1e293b" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="82" y="414" font-size="11" font-weight="600" fill="#1e293b">+isAgeEligible(): boolean</text>
+    <text x="82" y="427" font-size="11" font-weight="600" fill="#1e293b">+getDaysUntilEligible(): int</text>
+    <text x="82" y="440" font-size="11" font-weight="600" fill="#1e293b">+makeDonation(): Donation</text>
+  </g>
+  
+  <!-- SUBCLASS 2 (MIDDLE): Phlebotomist (extends Person) -->
+  <g id="class-phlebotomist" filter="url(#boxShadow)">
+    <rect x="460" y="310" width="280" height="135" fill="#f8fafc" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="460" y="310" width="280" height="26" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="600" y="328" text-anchor="middle" font-size="14" font-weight="800" fill="#0f172a">Phlebotomist</text>
+    <!-- Attributes Compartment -->
+    <text x="472" y="350" font-size="11" font-weight="600" fill="#1e293b">+staffId: String</text>
+    <text x="472" y="364" font-size="11" font-weight="600" fill="#1e293b">+licenseNumber: String</text>
+    <text x="472" y="378" font-size="11" font-weight="600" fill="#1e293b">+dutyShift: String</text>
+    <line x1="460" y1="398" x2="740" y2="398" stroke="#1e293b" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="472" y="414" font-size="11" font-weight="600" fill="#1e293b">+screenHemoglobin(hgb: double): boolean</text>
+    <text x="472" y="427" font-size="11" font-weight="600" fill="#1e293b">+recordVitals(dn: Donation): void</text>
+    <text x="472" y="440" font-size="11" font-weight="600" fill="#1e293b">+collectUnits(): void</text>
+  </g>
+  
+  <!-- SUBCLASS 3 (RIGHT): HospitalRepresentative (extends Person) -->
+  <g id="class-hospital-rep" filter="url(#boxShadow)">
+    <rect x="850" y="310" width="280" height="135" fill="#f8fafc" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="850" y="310" width="280" height="26" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="990" y="328" text-anchor="middle" font-size="14" font-weight="800" fill="#0f172a">HospitalRepresentative</text>
+    <!-- Attributes Compartment -->
+    <text x="862" y="350" font-size="11" font-weight="600" fill="#1e293b">+hospitalName: String</text>
+    <text x="862" y="364" font-size="11" font-weight="600" fill="#1e293b">+department: String</text>
+    <text x="862" y="378" font-size="11" font-weight="600" fill="#1e293b">+urgencyLevel: String</text>
+    <line x1="850" y1="398" x2="1130" y2="398" stroke="#1e293b" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="862" y="414" font-size="11" font-weight="600" fill="#1e293b">+submitRequisition(): void</text>
+    <text x="862" y="427" font-size="11" font-weight="600" fill="#1e293b">+trackFulfillment(): void</text>
+    <text x="862" y="440" font-size="11" font-weight="600" fill="#1e293b">+receiveStock(): void</text>
+  </g>
+  
+  <!-- ==================== PART 2: DOMAIN ENTITIES & ASSOCIATIONS ==================== -->
+  <g id="section-divider">
+    <line x1="70" y1="480" x2="1130" y2="480" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <rect x="420" y="470" width="360" height="22" rx="4" fill="#e2e8f0"/>
+    <text x="600" y="485" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">CORE DOMAIN ENTITIES &amp; SERVICE ARCHITECTURE</text>
+  </g>
+  
+  <!-- Association Lines between Domain Entities -->
+  <g id="association-lines" stroke="#1e293b" stroke-width="1.8">
+    <!-- Line from Donor down to Donation -->
+    <line x1="210" y1="445" x2="210" y2="520" marker-end="url(#assocArrow)"/>
+    <text x="220" y="470" font-size="11" font-weight="700" fill="#0f766e">1</text>
+    <text x="220" y="510" font-size="11" font-weight="700" fill="#0f766e">0..*</text>
+    
+    <!-- Line from Donation to BloodStock -->
+    <line x1="390" y1="600" x2="440" y2="600" marker-end="url(#assocArrow)"/>
+    <text x="395" y="592" font-size="11" font-weight="700" fill="#0f766e">0..*</text>
+    <text x="425" y="592" font-size="11" font-weight="700" fill="#0f766e">1</text>
+    
+    <!-- Line from HospitalRequest to BloodStock -->
+    <line x1="810" y1="600" x2="760" y2="600" marker-end="url(#assocArrow)"/>
+    <text x="795" y="592" font-size="11" font-weight="700" fill="#0f766e">0..*</text>
+    <text x="770" y="592" font-size="11" font-weight="700" fill="#0f766e">1</text>
+    
+    <!-- Line from HospitalRepresentative down to HospitalRequest -->
+    <line x1="990" y1="445" x2="990" y2="520" marker-end="url(#assocArrow)"/>
+    <text x="1000" y="470" font-size="11" font-weight="700" fill="#0f766e">1</text>
+    <text x="1000" y="510" font-size="11" font-weight="700" fill="#0f766e">0..*</text>
+  </g>
+  
+  <!-- DOMAIN ENTITY 1: Donation -->
+  <g id="class-donation" filter="url(#boxShadow)">
+    <rect x="70" y="520" width="320" height="175" fill="#f8fafc" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="70" y="520" width="320" height="26" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="230" y="538" text-anchor="middle" font-size="14" font-weight="800" fill="#0f172a">Donation</text>
+    <!-- Attributes Compartment -->
+    <text x="82" y="558" font-size="11" font-weight="600" fill="#1e293b">-donationId: int</text>
+    <text x="82" y="572" font-size="11" font-weight="600" fill="#1e293b">-donorId: int</text>
+    <text x="82" y="586" font-size="11" font-weight="600" fill="#1e293b">-bloodGroup: String</text>
+    <text x="82" y="600" font-size="11" font-weight="600" fill="#1e293b">-donationDate: LocalDate</text>
+    <text x="82" y="614" font-size="11" font-weight="600" fill="#1e293b">-unitsDonated: int = 1</text>
+    <text x="82" y="628" font-size="11" font-weight="600" fill="#1e293b">-hemoglobinLevel: double</text>
+    <text x="82" y="642" font-size="11" font-weight="600" fill="#1e293b">-remarks: String</text>
+    <line x1="70" y1="648" x2="390" y2="648" stroke="#1e293b" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="82" y="664" font-size="11" font-weight="600" fill="#1e293b">+isHemoglobinValid(): boolean</text>
+    <text x="82" y="678" font-size="11" font-weight="600" fill="#1e293b">+calculateCooldownDays(): int</text>
+  </g>
+  
+  <!-- DOMAIN ENTITY 2: BloodStock -->
+  <g id="class-bloodstock" filter="url(#boxShadow)">
+    <rect x="440" y="520" width="320" height="175" fill="#f8fafc" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="440" y="520" width="320" height="26" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="600" y="538" text-anchor="middle" font-size="14" font-weight="800" fill="#0f172a">BloodStock</text>
+    <!-- Attributes Compartment -->
+    <text x="452" y="558" font-size="11" font-weight="600" fill="#1e293b">-bloodGroup: String</text>
+    <text x="452" y="572" font-size="11" font-weight="600" fill="#1e293b">-availableUnits: int</text>
+    <text x="452" y="586" font-size="11" font-weight="600" fill="#1e293b">-minimumThreshold: int = 5</text>
+    <text x="452" y="600" font-size="11" font-weight="600" fill="#1e293b">-lastUpdated: LocalDateTime</text>
+    <line x1="440" y1="616" x2="760" y2="616" stroke="#1e293b" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="452" y="634" font-size="11" font-weight="600" fill="#1e293b">+isLowStock(threshold: int): boolean</text>
+    <text x="452" y="648" font-size="11" font-weight="600" fill="#1e293b">+incrementStock(units: int): boolean</text>
+    <text x="452" y="662" font-size="11" font-weight="600" fill="#1e293b">+decrementStock(units: int): boolean</text>
+    <text x="452" y="676" font-size="11" font-weight="600" fill="#1e293b">+getSurplusDeficit(): int</text>
+  </g>
+  
+  <!-- DOMAIN ENTITY 3: HospitalRequest -->
+  <g id="class-hospital-request" filter="url(#boxShadow)">
+    <rect x="810" y="520" width="320" height="175" fill="#f8fafc" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="810" y="520" width="320" height="26" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="970" y="538" text-anchor="middle" font-size="14" font-weight="800" fill="#0f172a">HospitalRequest</text>
+    <!-- Attributes Compartment -->
+    <text x="822" y="558" font-size="11" font-weight="600" fill="#1e293b">-requestId: int</text>
+    <text x="822" y="572" font-size="11" font-weight="600" fill="#1e293b">-hospitalName: String</text>
+    <text x="822" y="586" font-size="11" font-weight="600" fill="#1e293b">-bloodGroup: String</text>
+    <text x="822" y="600" font-size="11" font-weight="600" fill="#1e293b">-unitsRequested: int</text>
+    <text x="822" y="614" font-size="11" font-weight="600" fill="#1e293b">-urgencyLevel: String</text>
+    <text x="822" y="628" font-size="11" font-weight="600" fill="#1e293b">-status: String = "PENDING"</text>
+    <line x1="810" y1="634" x2="1130" y2="634" stroke="#1e293b" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="822" y="652" font-size="11" font-weight="600" fill="#1e293b">+canBeFulfilled(stock: int): boolean</text>
+    <text x="822" y="666" font-size="11" font-weight="600" fill="#1e293b">+markFulfilled(authorizer: String): void</text>
+    <text x="822" y="680" font-size="11" font-weight="600" fill="#1e293b">+rejectRequest(reason: String): void</text>
+  </g>
+  
+  <!-- ==================== PART 3: SERVICE LAYER ==================== -->
+  <!-- Service 1: DonorEligibilityService -->
+  <g id="class-eligibility-service" filter="url(#boxShadow)">
+    <rect x="180" y="740" width="390" height="120" fill="#f8fafc" stroke="#0f766e" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="180" y="740" width="390" height="26" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="375" y="758" text-anchor="middle" font-size="13" font-weight="800" fill="#004d40">&lt;&lt;Service&gt;&gt; DonorEligibilityService</text>
+    <!-- Attributes Compartment -->
+    <text x="192" y="780" font-size="11" font-weight="600" fill="#1e293b">-ELIGIBILITY_INTERVAL_DAYS: int = 90</text>
+    <line x1="180" y1="788" x2="570" y2="788" stroke="#0f766e" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="192" y="806" font-size="11" font-weight="600" fill="#1e293b">+isEligible(lastDonationDate: LocalDate): boolean</text>
+    <text x="192" y="822" font-size="11" font-weight="600" fill="#1e293b">+getDaysUntilEligible(lastDonationDate: LocalDate): int</text>
+    <text x="192" y="838" font-size="11" font-weight="600" fill="#1e293b">+getEligibleDonors(bloodGroup: String): List&lt;Donor&gt;</text>
+  </g>
+  
+  <!-- Service 2: InventoryService -->
+  <g id="class-inventory-service" filter="url(#boxShadow)">
+    <rect x="630" y="740" width="390" height="120" fill="#f8fafc" stroke="#0f766e" stroke-width="1.8" rx="2" ry="2"/>
+    <!-- Header Compartment -->
+    <rect x="630" y="740" width="390" height="26" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.8" rx="2" ry="2"/>
+    <text x="825" y="758" text-anchor="middle" font-size="13" font-weight="800" fill="#004d40">&lt;&lt;Service&gt;&gt; InventoryService</text>
+    <!-- Attributes Compartment -->
+    <text x="642" y="780" font-size="11" font-weight="600" fill="#1e293b">-LOW_STOCK_THRESHOLD: int = 5</text>
+    <line x1="630" y1="788" x2="1020" y2="788" stroke="#0f766e" stroke-width="1"/>
+    <!-- Operations Compartment -->
+    <text x="642" y="806" font-size="11" font-weight="600" fill="#1e293b">+receiveDonationUnits(group: String, units: int): boolean</text>
+    <text x="642" y="822" font-size="11" font-weight="600" fill="#1e293b">+issueUnits(group: String, units: int): boolean</text>
+    <text x="642" y="838" font-size="11" font-weight="600" fill="#1e293b">+checkLowStockAlerts(): List&lt;BloodStock&gt;</text>
+  </g>
+  
+  <!-- Dependency Lines from Services -->
+  <g id="dependency-lines" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="5,4">
+    <line x1="300" y1="740" x2="230" y2="695" marker-end="url(#depArrow)"/>
+    <line x1="750" y1="740" x2="680" y2="695" marker-end="url(#depArrow)"/>
+  </g>
+  
+  <!-- ==================== LEGEND & NOTATION GUIDE ==================== -->
+  <g id="uml-legend" transform="translate(120, 900)">
+    <rect x="0" y="0" width="960" height="120" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+    <text x="480" y="24" text-anchor="middle" font-size="12" font-weight="800" fill="#0f172a">UML CLASS DIAGRAM NOTATION GUIDE (ISO/IEC 19505 STANDARD)</text>
+    
+    <!-- Generalization Symbol -->
+    <line x1="40" y1="55" x2="100" y2="55" stroke="#1e293b" stroke-width="1.8" marker-end="url(#generalization)"/>
+    <text x="115" y="60" font-size="11" font-weight="600" fill="#334155">Generalization / Inheritance (&lt;|--)</text>
+    
+    <!-- Association Symbol -->
+    <line x1="390" y1="55" x2="450" y2="55" stroke="#1e293b" stroke-width="1.8" marker-end="url(#assocArrow)"/>
+    <text x="465" y="60" font-size="11" font-weight="600" fill="#334155">Directed Association (--&gt;)</text>
+    
+    <!-- Dependency Symbol -->
+    <line x1="720" y1="55" x2="780" y2="55" stroke="#0d9488" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#depArrow)"/>
+    <text x="795" y="60" font-size="11" font-weight="600" fill="#334155">Dependency (..&gt;)</text>
+    
+    <!-- Visibility Indicators -->
+    <text x="40" y="95" font-size="11" font-weight="700" fill="#059669"><tspan font-family="monospace">+ Public</tspan> (Accessible anywhere)</text>
+    <text x="320" y="95" font-size="11" font-weight="700" fill="#dc2626"><tspan font-family="monospace">- Private</tspan> (Accessible in class only)</text>
+    <text x="590" y="95" font-size="11" font-weight="700" fill="#d97706"><tspan font-family="monospace"># Protected</tspan> (Accessible in package/subclass)</text>
+    <text x="850" y="95" font-size="11" font-weight="600" fill="#64748b">1 : 0..* Multiplicities</text>
+  </g>
+</svg>

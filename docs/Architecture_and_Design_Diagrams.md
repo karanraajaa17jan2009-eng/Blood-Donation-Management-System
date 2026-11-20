@@ -138,9 +138,80 @@ flowchart LR
 
 ## 3. Class Diagram
 
-The Class Diagram illustrates the object-oriented structure of the Java application, adhering to SOLID principles, design patterns (DAO Pattern, Singleton for Database Connection, Service Layer Pattern), and standard JavaBeans conventions.
+> [!NOTE]
+> **Interactive & Vector Class Diagrams Available**:
+> - Interactive Web Viewer: [class_diagram.html](file:///E:/Assingment_1/diagrams/class_diagram.html)
+> - Scalable Vector Graphic (SVG): [class_diagram.svg](file:///E:/Assingment_1/diagrams/class_diagram.svg)
 
-```mermaid
+### 3.1 Inheritance / Generalization Hierarchy (Person & Specialized Roles)
+Matching standard UML 3-compartment class notation with generalization inheritance arrows pointing from specialized roles up to the base `Person` superclass:
+
+```
+                               +-------------------------------------+
+                               |               Person                |
+                               +-------------------------------------+
+                               | +id: int                            |
+                               | +name: String                       |
+                               | +contactNumber: String              |
+                               | +email: String                      |
+                               | +city: String                       |
+                               +-------------------------------------+
+                               | +getContactDetails(): String        |
+                               | +validateDetails(): boolean         |
+                               +-------------------------------------+
+                                                 ^
+                                                 | (Generalization <|--)
+                     +---------------------------+---------------------------+
+                     |                                                       |
+   +------------------------------------+                 +------------------------------------+
+   |               Donor                |                 |       HospitalRepresentative       |
+   +------------------------------------+                 +------------------------------------+
+   | +age: int                          |                 | +hospitalName: String              |
+   | +gender: String                    |                 | +department: String                |
+   | +bloodGroup: String                |                 | +urgencyLevel: String              |
+   | +registrationDate: LocalDate       |                 +------------------------------------+
+   +------------------------------------+                 | +submitRequisition(): void         |
+   | +isAgeEligible(): boolean          |                 | +trackFulfillment(): void          |
+   | +getDaysUntilEligible(): int       |                 | +receiveStock(): void              |
+   | +makeDonation(): Donation          |                 +------------------------------------+
+   +------------------------------------+
+                     | 1
+                     |
+                     | makes (Directed Association -->)
+                     v 0..*
+   +------------------------------------+                 +------------------------------------+
+   |              Donation              |   increments    |             BloodStock             |
+   +------------------------------------+   ---------->   +------------------------------------+
+   | -donationId: int                   | 0..*          1 | -bloodGroup: String                |
+   | -donorId: int                      |                 | -availableUnits: int               |
+   | -bloodGroup: String                |                 | -minimumThreshold: int = 5         |
+   | -donationDate: LocalDate           |                 | -lastUpdated: LocalDateTime        |
+   | -unitsDonated: int = 1             |                 +------------------------------------+
+   | -hemoglobinLevel: double           |                 | +isLowStock(thresh: int): boolean  |
+   | -phlebotomistName: String          |                 | +incrementStock(units: int): bool  |
+   | -remarks: String                   |                 | +decrementStock(units: int): bool  |
+   +------------------------------------+                 | +getSurplusDeficit(): int          |
+   | +isHemoglobinValid(): boolean      |                 +------------------------------------+
+   | +calculateCooldownDays(): int      |                                   ^
+   +------------------------------------+                                   | 1
+                                                                            | requisitions
+                                                                            | 0..*
+                                                          +------------------------------------+
+                                                          |          HospitalRequest           |
+                                                          +------------------------------------+
+                                                          | -requestId: int                    |
+                                                          | -hospitalName: String              |
+                                                          | -bloodGroup: String                |
+                                                          | -unitsRequested: int               |
+                                                          | -urgencyLevel: String              |
+                                                          | -status: String = "PENDING"        |
+                                                          +------------------------------------+
+                                                          | +canBeFulfilled(stock: int): bool  |
+                                                          | +markFulfilled(auth: String): void |
+                                                          +------------------------------------+
+```
+
+### 3.2 Detailed Multi-Tier Class Diagram Specification
 classDiagram
     direction TB
 
