@@ -40,6 +40,7 @@ print("=" * 80)
 print("\n--- [CHECK 1] Verifying Software Engineering Documents ---")
 required_docs = [
     ("docs/SRS_Document.md", 2000),
+    ("docs/Software_Engineering_Unit_Wise_Process.md", 3000),
     ("docs/Architecture_and_Design_Diagrams.md", 1500),
     ("docs/Database_Design_and_Normalization.md", 1500),
     ("docs/Entity_Relationship_Diagram.md", 2000),

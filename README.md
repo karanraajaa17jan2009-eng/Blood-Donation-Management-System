@@ -110,6 +110,7 @@ Assingment_1/
 │   ├── chen_er_diagram.svg                    # Scalable Vector Graphics (SVG) Peter Chen Model
 │   └── er_diagram.html                        # Full-Screen Printable Relational ER Diagram
 ├── docs/                                      # Software Engineering Documentation
+│   ├── Software_Engineering_Unit_Wise_Process.md # 5-Unit Academic Syllabus Process Mapping (25ITT33)
 │   ├── SRS_Document.md                        # IEEE 830 Standard SRS Specification
 │   ├── Architecture_and_Design_Diagrams.md    # Architecture, Use Case & Class Diagrams
 │   ├── Database_Design_and_Normalization.md   # ER Diagram, Relational Model & Normalization (UNF to BCNF)
