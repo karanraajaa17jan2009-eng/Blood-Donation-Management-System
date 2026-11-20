@@ -450,5 +450,126 @@ sequenceDiagram
 ```
 
 ---
+
+## 5. UML Activity Diagram (Dynamic Behavioral Modeling)
+
+The **UML Activity Diagram** models the end-to-end clinical workflow of blood collection, decision branching, and concurrent execution using UML 2.5 standards (ISO/IEC 19505-2).
+
+### 5.1 Interactive Viewer & Artifacts
+- **Interactive Multi-View HTML:** [activity_and_component_diagrams.html](file:///e:/Assingment_1/diagrams/activity_and_component_diagrams.html)
+- **Vector SVG Artifact:** [activity_diagram.svg](file:///e:/Assingment_1/diagrams/activity_diagram.svg)
+
+### 5.2 Flowchart Architecture
+
+```mermaid
+flowchart TD
+    Start((● Initial Node)) --> Recv["Receive Donor Registration"]
+    Recv --> DecAge{"18 <= Age <= 65?"}
+    
+    DecAge -- "[Age < 18 or > 65]" --> RejAge["Reject Donor: Age Ineligible"]
+    DecAge -- "[18 <= Age <= 65]" --> ChkHist["Check Donation History & Cooldown"]
+    
+    ChkHist --> DecCooldown{"Days Since Last Donation >= 90?"}
+    DecCooldown -- "[Days < 90]" --> RejCooldown["Block Donor: Active 90-Day Cooldown"]
+    DecCooldown -- "[Days >= 90 or New]" --> ScreenVitals["Screen Vitals & Hemoglobin"]
+    
+    ScreenVitals --> DecHgb{"Hgb >= 12.0 g/dL?"}
+    DecHgb -- "[Hgb < 12.0 g/dL]" --> Defer["Defer Donor: Low Hemoglobin"]
+    DecHgb -- "[Hgb >= 12.0 g/dL]" --> DrawBlood["Draw 1 Unit Blood (Whole Blood 450 mL)"]
+    
+    DrawBlood --> ForkBar["═══════ <<Fork Bar>> (Parallel Streams) ═══════"]
+    
+    subgraph Parallel_Care ["Parallel Branch A: Donor Post-Care"]
+        ForkBar --> PostCare["Provide Refreshments & Post-Care Rest"]
+        PostCare --> Cert["Issue Donation Certificate & SMS Notification"]
+    end
+    
+    subgraph Parallel_Stock ["Parallel Branch B: Inventory & Safety"]
+        ForkBar --> IncStock["Increment Stock in blood_stock (Atomic DB)"]
+        IncStock --> Buffer["Evaluate Buffer Safety Thresholds (Min 10 Units)"]
+    end
+    
+    Cert --> JoinBar["═══════ <<Join Bar>> (Synchronization) ═══════"]
+    Buffer --> JoinBar
+    
+    JoinBar --> LogSession["Log Session Complete in donations Table"]
+    LogSession --> MergeNode{"Merge Node"}
+    RejAge --> MergeNode
+    RejCooldown --> MergeNode
+    Defer --> MergeNode
+    MergeNode --> FinalNode(((◎ Final Node)))
+```
+
+### 5.3 Activity Diagram Notation Mapping
+| UML 2.5 Element | Visual Representation | Clinical Rule in Scenario 15 |
+| :--- | :--- | :--- |
+| **Initial Node** | Solid Black Circle `●` | Donor arrives at blood center registration desk |
+| **Action State** | Rounded Blue Rectangle | Discrete clinical actions (Screening, Phlebotomy, Post-care) |
+| **Decision Diamond** | Diamond with guards `[...]` | Medical criteria checks (Age: 18-65, Cooldown: 90d, Hgb: >=12g/dL) |
+| **Fork Bar** | Thick Solid Horizontal Bar | Splits control into concurrent threads: Donor Care & Stock Accounting |
+| **Join Bar** | Thick Solid Horizontal Bar | Synchronizes both threads before session database persistence |
+| **Final Node** | Bullseye Circle `◎` | Clean termination of workflow lifecycle |
+
+---
+
+## 6. UML Component Diagram (Modular Subsystem Architecture)
+
+The **UML Component Diagram** models the physical structural decomposition of the system into modular components, boundary ports, provided interfaces (lollipops `-o`), required interfaces (sockets `-()`), and assembly connectors (`-o)-`).
+
+### 6.1 Interactive Viewer & Artifacts
+- **Interactive Multi-View HTML:** [activity_and_component_diagrams.html](file:///e:/Assingment_1/diagrams/activity_and_component_diagrams.html)
+- **Vector SVG Artifact:** [component_diagram.svg](file:///e:/Assingment_1/diagrams/component_diagram.svg)
+
+### 6.2 Component Architecture & Interface Topology
+
+```
++===================================================================================================+
+|  <<component>> BloodDonationManagementSystem                                             [= |]     |
+|                                                                                                   |
+|  (Provided IF)                                                                                    |
+|  -o IDonorService ------[Port 1]----+                                                             |
+|                                     |                                                             |
+|  -o IEligibilityCheck ---[Port 2]---+---> (Socket State)                                          |
+|                                     |     +-------------------------+                             |
+|                                     |     |  <<component>>          |                             |
+|                                     |     |  EligibilityEngine      |--o IDonorHistory            |
+|                                     |     |                         |         )                   |
+|                                     +---> (Socket Details)          |    +--------------------+   |
+|                                           +-------------------------+    | <<component>>      |   |
+|                                                        |                 | DonorManagement    |   |
+|                                                        o IStockAllocation+--------------------+   |
+|                                                        )                          |               |
+|                                           +-------------------------+             |               |
+|  -o IHospitalReq -------[Port 3]--------->|  <<component>>          |             |               |
+|                                           |  BloodInventory         |             |               |
+|                                           +-------------------------+             |               |
+|                                                        |                          |               |
+|                                                        o Location & Density       |               |
+|                                                        )                          |               |
+|                                           +-------------------------+             |               |
+|                                           |  <<component>>          |             |               |
+|                                           |  DonorAnalytics         |             |               |
+|                                           +-------------------------+             |               |
+|                                                                                   |               |
+|                                                                  [Port 4]---------+---> -( ISMS   |
+|                                                                                          Gateway  |
+|                                                                  [Port 5]---------+---> -( IGovt  |
+|                                                                                          Registry |
++===================================================================================================+
+```
+
+### 6.3 Interface Specification Table
+| Interface Name | Notation Type | Port Attached | Interface Signature / Contract Description |
+| :--- | :--- | :--- | :--- |
+| `IDonorService` | Provided (Lollipop `-o`) | Port 1 (Left Boundary) | `registerDonor()`, `getDonorProfile()`, `checkAvailability()` |
+| `IEligibilityCheck` | Provided (Lollipop `-o`) | Port 2 (Left Boundary) | `verifyMedicalEligibility(age, weight, lastDate, hgb)` |
+| `IHospitalRequisition`| Provided (Lollipop `-o`) | Port 3 (Left Boundary) | `submitRequisition()`, `checkCompatibility()`, `trackOrderStatus()` |
+| `ISMSGateway` | Required (Socket `-()`) | Port 4 (Right Boundary) | `sendSMSAlert(donorPhone, messageTemplate)` (External Twilio/NIC) |
+| `IGovtHealthRegistry` | Required (Socket `-()`) | Port 5 (Right Boundary) | `syncBloodStock(licenseNo, stockPayload)` (External e-RaktKosh) |
+| `IDonorHistory` | Assembly Connector (`-o)-`)| Internal Subsystem | Decoupled link between `EligibilityEngine` and `DonorManagement` |
+| `IStockAllocation` | Assembly Connector (`-o)-`)| Internal Subsystem | Atomic unit allocation link between `EligibilityEngine` and `BloodInventory` |
+
+---
 *Prepared and verified for academic submission by Karan Raajaa V (Reg. No: 732925ITR045).*
+
 

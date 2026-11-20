@@ -49,6 +49,9 @@ required_docs = [
     ("diagrams/chen_er_diagram.svg", 5000),
     ("diagrams/class_diagram.html", 2000),
     ("diagrams/class_diagram.svg", 3000),
+    ("diagrams/activity_diagram.svg", 3000),
+    ("diagrams/component_diagram.svg", 3000),
+    ("diagrams/activity_and_component_diagrams.html", 2000),
     ("docs/Testing_Document_and_Test_Cases.md", 1500),
     ("sample_outputs/sample_inputs_and_outputs.md", 1000),
     ("README.md", 2000),
@@ -63,6 +66,16 @@ for doc_path, min_len in required_docs:
         log_test(f"Document '{doc_path}' exists ({size} bytes)", size >= min_len, f"Size {size} < {min_len}")
     else:
         log_test(f"Document '{doc_path}' exists", False, "File not found")
+
+# XML / W3C Well-Formedness Check for all SVG Diagrams
+import xml.etree.ElementTree as ET
+for svg_file in ["diagrams/chen_er_diagram.svg", "diagrams/class_diagram.svg", "diagrams/activity_diagram.svg", "diagrams/component_diagram.svg"]:
+    try:
+        tree = ET.parse(svg_file)
+        root = tree.getroot()
+        log_test(f"SVG XML Well-Formedness: '{svg_file}' valid W3C XML", root.tag.endswith('svg'))
+    except Exception as e:
+        log_test(f"SVG XML Well-Formedness: '{svg_file}'", False, str(e))
 
 # ------------------------------------------------------------------------------
 # Test Section 2: Relational Database & SQL Integrity Test

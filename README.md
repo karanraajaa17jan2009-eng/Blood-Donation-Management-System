@@ -106,6 +106,9 @@ Assingment_1/
 │   ├── analytical_queries.sql                 # Syllabus-Mapped Complex SQL Queries
 │   └── extracted_csv/                         # CSV Exports of Database Tables
 ├── diagrams/                                  # Visual System & Architecture Diagrams
+│   ├── activity_and_component_diagrams.html   # Interactive UML Activity & Component Diagrams (Multi-View)
+│   ├── activity_diagram.svg                   # Scalable Vector Graphics (SVG) UML Activity Model (Workflow)
+│   ├── component_diagram.svg                  # Scalable Vector Graphics (SVG) UML Component Model (Architecture)
 │   ├── class_diagram.html                     # Interactive UML Class Diagram (3-Compartment Visual Style)
 │   ├── class_diagram.svg                      # Scalable Vector Graphics (SVG) UML Class Model
 │   ├── chen_er_diagram.html                   # Interactive Chen Notation ER Diagram (Visual Style)
@@ -295,10 +298,14 @@ Detailed test specifications and execution logs are available in [Testing_Docume
 
 ## 📄 Documentation Links
 
-- 📘 [Software Requirements Specification (SRS Document)](file:///e:/Assingment_1/docs/SRS_Document.md)
-- 📐 [Architecture, Use Case, and Class Diagrams](file:///e:/Assingment_1/docs/Architecture_and_Design_Diagrams.md)
-- 🗄️ [Dedicated Entity-Relationship (ER) Diagram Specification](file:///e:/Assingment_1/docs/Entity_Relationship_Diagram.md)
+- ⚡ [Interactive UML Activity & Component Diagrams](file:///e:/Assingment_1/diagrams/activity_and_component_diagrams.html)
+- 📦 [Interactive UML Class Diagram](file:///e:/Assingment_1/diagrams/class_diagram.html)
+- 🔷 [Interactive Peter Chen ER Diagram](file:///e:/Assingment_1/diagrams/chen_er_diagram.html)
 - 🖨️ [Interactive / Printable Visual ER Diagram Page](file:///e:/Assingment_1/diagrams/er_diagram.html)
+- 📘 [Software Requirements Specification (SRS Document)](file:///e:/Assingment_1/docs/SRS_Document.md)
+- 📐 [Architecture, Use Case, Activity & Component Diagrams](file:///e:/Assingment_1/docs/Architecture_and_Design_Diagrams.md)
+- 📑 [Software Engineering 5-Unit Academic Process Report](file:///e:/Assingment_1/docs/Software_Engineering_Unit_Wise_Process.md)
+- 🗄️ [Dedicated Entity-Relationship (ER) Diagram Specification](file:///e:/Assingment_1/docs/Entity_Relationship_Diagram.md)
 - 📊 [Database Design, Relational Model & Normalization](file:///e:/Assingment_1/docs/Database_Design_and_Normalization.md)
 - 🧪 [Testing Techniques and Test Cases Documentation](file:///e:/Assingment_1/docs/Testing_Document_and_Test_Cases.md)
 - 💻 [Sample Inputs and Terminal Execution Walkthrough](file:///e:/Assingment_1/sample_outputs/sample_inputs_and_outputs.md)
